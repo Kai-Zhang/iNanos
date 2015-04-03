@@ -1,12 +1,12 @@
 #ifndef __COMMON_H__
 #define __COMMON_H__
 
-#include "types.h"
-#include "const.h"
+#include "common/types.h"
+#include "common/const.h"
 
 void printk(const char *ctl, ...);
 
-#include "assert.h"
+#include "common/assert.h"
 
 
 #endif
