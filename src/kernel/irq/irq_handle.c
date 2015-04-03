@@ -45,8 +45,7 @@ void irq_handle(TrapFrame *tf) {
 	}
 
 	if (irq < 1000) {
-		extern uint8_t logo[];
-		panic("Unexpected exception #%d\n\33[1;31mHint: The machine is always right! For more details about exception #%d, see\n%s\n\33[0m", irq, irq, logo);
+		panic("Unexpected exception #%d\n", irq);
 	} else if (irq >= 1000) {
 		/* The following code is to handle external interrupts.
 		 * You will use this code in Lab2.  */

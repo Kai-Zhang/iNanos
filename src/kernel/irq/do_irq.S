@@ -45,19 +45,10 @@ asm_do_irq:
 	pushl %esp
 	call irq_handle
 	
-# YOU NEED TO SWITCH STACK TO current->tf
-# SO YOU NEED TWO ADD TWO LINES OF INTERRUPT CODE
-# HINT:
-#     1. USE movl INSTRUCTION
-#     2. USE (address) CAN REFERENCE MEMORY LOCATION OF address
-#     3. YOU MAY FLUSH ANY GENRAL PURPOSE REGISTER AS YOU WISH
-#     4. REGISTERS ARE REFERENCED BY "%", SUCH AS %esp
+	movl current, %eax
+	movl (%eax), %esp
 
-################### your work ###################
-
-
-#################################################
-	addl $4, %esp # when you finish this task, this instruction should be removed
+#	addl $4, %esp
 
 	popal
 	popl %gs
