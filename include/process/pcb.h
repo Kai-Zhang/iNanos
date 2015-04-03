@@ -13,6 +13,6 @@ typedef union PCB {
 	};
 } PCB;
 
-extern PCB *current;
+extern PCB *current, *next;
 
 #endif

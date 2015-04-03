@@ -1,4 +1,5 @@
 #include "kernel.h"
+#include "process/pcb.h"
 
 #define NR_IRQ_HANDLE 32
 
@@ -43,8 +44,10 @@ void irq_handle(TrapFrame *tf) {
 	if (irq < 0) {
 		panic("Unhandled exception!");
 	}
-
-	if (irq < 1000) {
+	else if (irq == 0x80) {
+		/* system call */
+	}
+	else if (irq < 1000) {
 		panic("Unexpected exception #%d\n", irq);
 	} else if (irq >= 1000) {
 		/* The following code is to handle external interrupts.

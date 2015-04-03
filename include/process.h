@@ -3,5 +3,7 @@
 #include "process/pcb.h"
 
 PCB *create_kthread(void *fun);
+void sleep();
+void wakeup(PCB *);
 
 #endif

@@ -1,9 +1,9 @@
 #include "kernel.h"
+#include "process/pcb.h"
 
 PCB *readyq, *freeq, *sleepq;
 PCB PCB_pool[KERNEL_PCB_MAX];
 extern PCB idle;
-extern PCB *current;
 
 PCB*
 create_kthread(void *fun) {
@@ -22,7 +22,7 @@ create_kthread(void *fun) {
 	tf->cs = SELECTOR_KERNEL(SEG_KERNEL_CODE);
 	tf->gs = tf->fs = tf->es = tf->ds = SELECTOR_KERNEL(SEG_KERNEL_DATA);
 	tf->eflags = 0x202;
-	return NULL;
+	return new_kthread;
 }
 
 void
@@ -43,5 +43,35 @@ init_proc() {
 		INIT_LIST_HEAD(&(PCB_pool[i].sleep));
 		list_add(&(PCB_pool[i].free), &(PCB_pool[i-1].free));
 	}
+}
+
+void
+sleep() {
+	next = list_entry(current->ready.next, PCB, ready);
+	list_del_init(&(current->ready));
+	if (sleepq == NULL) {
+		sleepq = current;
+		INIT_LIST_HEAD(&(current->sleep));
+	}
+	else {
+		list_add_tail(&(current->sleep), &(sleepq->sleep));
+	}
+	asm volatile("int $0x80");
+}
+
+void wakeup(PCB *p) {
+	if ((list_empty(&(p->sleep)) && sleepq != p) || sleepq == NULL) {
+		return;
+	}
+	if (sleepq == p) {
+		if (list_empty(&(sleepq->sleep))) {
+			sleepq = NULL;
+		}
+		else {
+			sleepq = list_entry(p->sleep.next, PCB, sleep);
+		}
+	}
+	list_del_init(&(p->sleep));
+	list_add_tail(&(p->ready), &(current->ready));
 }
 
