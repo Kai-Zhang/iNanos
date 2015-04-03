@@ -10,12 +10,6 @@ CFILES  = $(shell find src/ -name "*.c")
 SFILES  = $(shell find src/ -name "*.S")
 OBJS    = $(CFILES:.c=.o) $(SFILES:.S=.o)
 
-run: disk.img
-	$(QEMU) -serial stdio disk.img
-
-debug: disk.img
-	$(QEMU) -serial stdio -s -S disk.img
-
 disk.img: kernel
 	@cd boot; make
 	cat boot/bootblock kernel > disk.img
@@ -26,6 +20,12 @@ kernel: $(OBJS)
 	readelf -a kernel > elf.txt		# obtain more information about the executable
 
 -include $(OBJS:.o=.d)
+
+run:
+	$(QEMU) -serial stdio disk.img
+
+debug:
+	$(QEMU) -serial stdio -s -S disk.img
 
 clean:
 	@cd boot; make clean
