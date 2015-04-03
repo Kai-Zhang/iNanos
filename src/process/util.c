@@ -12,6 +12,7 @@ create_kthread(void *fun) {
 	}
 	PCB *new_kthread = freeq;
 	TrapFrame *tf = NULL;
+	lock();
 	freeq = list_entry(new_kthread->free.next, PCB, free);
 	list_add_tail(&(new_kthread->ready), &(current->ready));
 	list_del_init(&(new_kthread->free));
@@ -22,6 +23,7 @@ create_kthread(void *fun) {
 	tf->cs = SELECTOR_KERNEL(SEG_KERNEL_CODE);
 	tf->gs = tf->fs = tf->es = tf->ds = SELECTOR_KERNEL(SEG_KERNEL_DATA);
 	tf->eflags = 0x202;
+	unlock();
 	return new_kthread;
 }
 
@@ -47,6 +49,7 @@ init_proc() {
 
 void
 sleep() {
+	lock();
 	next = list_entry(current->ready.next, PCB, ready);
 	list_del_init(&(current->ready));
 	if (sleepq == NULL) {
@@ -56,10 +59,12 @@ sleep() {
 	else {
 		list_add_tail(&(current->sleep), &(sleepq->sleep));
 	}
+	unlock();
 	asm volatile("int $0x80");
 }
 
 void wakeup(PCB *p) {
+	lock();
 	if ((list_empty(&(p->sleep)) && sleepq != p) || sleepq == NULL) {
 		return;
 	}
@@ -73,5 +78,23 @@ void wakeup(PCB *p) {
 	}
 	list_del_init(&(p->sleep));
 	list_add_tail(&(p->ready), &(current->ready));
+	unlock();
 }
 
+void
+lock() {
+	asm volatile("pushf");
+	asm volatile("popl %0" : "=r"(current->unlock_status));
+	cli();
+	current->lock_counter++;
+}
+
+void
+unlock() {
+	current->lock_counter--;
+	if (current->lock_counter <= 0) {
+		if (current->unlock_status) {
+			sti();
+		}
+	}
+}

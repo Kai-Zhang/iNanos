@@ -10,6 +10,7 @@ typedef union PCB {
 	struct {
 		void *tf;
 		struct list_head ready, sleep, free;
+		int lock_counter, unlock_status;
 	};
 } PCB;
 

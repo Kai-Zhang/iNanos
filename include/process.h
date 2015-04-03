@@ -6,4 +6,7 @@ PCB *create_kthread(void *fun);
 void sleep();
 void wakeup(PCB *);
 
+void lock();
+void unlock();
+
 #endif
