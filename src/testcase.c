@@ -214,15 +214,114 @@ test_sleep_wakeup(void) {
 	PCB_of_thread_D = create_kthread(D);
 }
 
+
+// --------------------------------------------------
+// Test message
+// --------------------------------------------------
+int pidA, pidB, pidC, pidD, pidE;
+
+void
+kthread_a(void) { 
+	Message m1, m2;
+	m1.src = current->pid;
+	int x = 0;
+	while(1) {
+		if(x % 1000000 == 0) {
+			printk("a"); 
+			send(pidE, &m1);
+			receive(pidE, &m2);
+		}
+		x ++;
+	}
+}
+
+void
+kthread_b(void) { 
+	Message m1, m2;
+	m1.src = current->pid;
+	int x = 0;
+	receive(pidE, &m2);
+	while(1) {
+		if(x % 1000000 == 0) {
+			printk("b"); 
+			send(pidE, &m1);
+			receive(pidE, &m2);
+		}
+		x ++;
+	}
+}
+
+void
+kthread_c(void) { 
+	Message m1, m2;
+	m1.src = current->pid;
+	int x = 0;
+	receive(pidE, &m2);
+	while(1) {
+		if(x % 1000000 == 0) {
+			printk("c"); 
+			send(pidE, &m1);
+			receive(pidE, &m2);
+		}
+		x ++;
+	}
+}
+
+void
+kthread_d(void) { 
+	Message m1, m2;
+	m1.src = current->pid;
+	receive(pidE, &m2);
+	int x = 0;
+	while(1) {
+		if(x % 1000000 == 0) {
+			printk("d"); 
+			send(pidE, &m1);
+			receive(pidE, &m2);
+		}
+		x ++;
+	}
+}
+ 
+void
+kthread_e(void) {
+	Message m1, m2;
+	m2.src = current->pid;
+	char c;
+	while(1) {
+		receive(ANY, &m1);
+		if(m1.src == pidA) {c = '|'; m2.dst = pidB; }
+		else if(m1.src == pidB) {c = '/'; m2.dst = pidC;}
+		else if(m1.src == pidC) {c = '-'; m2.dst = pidD;}
+		else if(m1.src == pidD) {c = '\\'; m2.dst = pidA;}
+		else assert(0);
+ 
+		printk("\033[s\033[1000;1000H%c\033[u", c);
+		send(m2.dst, &m2);
+	}
+ 
+}
+
+void
+test_message(void) {
+	pidA = (create_kthread(kthread_a))->pid;
+	pidB = (create_kthread(kthread_b))->pid;
+	pidC = (create_kthread(kthread_c))->pid;
+	pidD = (create_kthread(kthread_d))->pid;
+	pidE = (create_kthread(kthread_e))->pid;
+}
+
+
 // Main entry of testcases
 void
 test_setup(void) {
 	// Select testcases here.
 
-	// accelerate();
+	accelerate();
 	// test_printk();
 	// test_basic_kthread();
 	// test_stackoverflow();
 	// test_sleep_wakeup();
 	// test_semaphore();
+	test_message();
 }

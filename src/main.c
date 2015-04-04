@@ -29,6 +29,7 @@ os_init(void) {
 	assert(0);	// should not reach here
 }
 
+extern void test_setup();
 void
 os_init_cont(void) {
 	/* Reset the GDT. Although user processes in Nanos run in Ring 0,
@@ -50,6 +51,7 @@ os_init_cont(void) {
 	init_proc();
 
 	printk("Hello, OS World!\n");
+	test_setup();
 
 	sti();
 

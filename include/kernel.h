@@ -2,6 +2,7 @@
 #define __KERNEL_H__
 
 #include "common.h"
+#include "lib/string.h"
 #include "x86/x86.h"
 #include "memory.h"
 #include "process.h"

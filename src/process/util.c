@@ -10,12 +10,23 @@ create_kthread(void *fun) {
 	if (list_empty(&(freeq->free))) {
 		return NULL;
 	}
+	lock();
 	PCB *new_kthread = freeq;
 	TrapFrame *tf = NULL;
-	lock();
 	freeq = list_entry(new_kthread->free.next, PCB, free);
 	list_add_tail(&(new_kthread->ready), &(current->ready));
 	list_del_init(&(new_kthread->free));
+	INIT_LIST_HEAD(&(new_kthread->sleep));
+	INIT_LIST_HEAD(&(new_kthread->sem));
+	init_sem(&(new_kthread->mutex), 1);
+	init_sem(&(new_kthread->amount), 0);
+	int i = 0;
+	for (; i < MSGBUF_SIZE; i++) {
+		INIT_LIST_HEAD(&(new_kthread->msgbuf[i].list));
+	}
+	new_kthread->messages = NULL;
+	new_kthread->lock_counter = 0;
+	new_kthread->unlock_status = 0;
 	new_kthread->tf = (TrapFrame *)(new_kthread->kstack + KSTACK_SIZE) - 1;
 	tf = (TrapFrame *)(new_kthread->tf);
 	tf->irq = 1000;
@@ -35,12 +46,14 @@ init_proc() {
 	INIT_LIST_HEAD(&(idle.free));
 	
 	freeq = &PCB_pool[0];
+	PCB_pool[0].pid = 0;
 	INIT_LIST_HEAD(&(PCB_pool[0].ready));
 	INIT_LIST_HEAD(&(PCB_pool[0].sleep));
 	INIT_LIST_HEAD(&(PCB_pool[0].free));
 
 	int i = 1;
 	for (; i < KERNEL_PCB_MAX; i++) {
+		PCB_pool[i].pid = i;
 		INIT_LIST_HEAD(&(PCB_pool[i].ready));
 		INIT_LIST_HEAD(&(PCB_pool[i].sleep));
 		list_add(&(PCB_pool[i].free), &(PCB_pool[i-1].free));

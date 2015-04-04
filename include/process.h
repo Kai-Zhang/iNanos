@@ -2,6 +2,7 @@
 #define __PROCESS_H__
 #include "process/pcb.h"
 #include "process/semaphore.h"
+#include "process/message.h"
 
 PCB *create_kthread(void *fun);
 void sleep();
