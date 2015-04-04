@@ -85,6 +85,7 @@ void
 lock() {
 	asm volatile("pushf");
 	asm volatile("popl %0" : "=r"(current->unlock_status));
+	current->unlock_status = (current->unlock_status & 0x200) >> 9;
 	cli();
 	current->lock_counter++;
 }

@@ -3,7 +3,6 @@
 #include "memory.h"
 #include "process.h"
 
-
 void init_page(void);
 void init_serial(void);
 void init_segment(void);
@@ -30,54 +29,6 @@ os_init(void) {
 	assert(0);	// should not reach here
 }
 
-PCB *PCB_of_thread_A;
-PCB *PCB_of_thread_B;
-PCB *PCB_of_thread_C;
-PCB *PCB_of_thread_D;
-void A () { 
-    int x = 0;
-    while(1) {
-        if(x % 100000 == 0) {
-            printk("a");
-            wakeup(PCB_of_thread_B);
-            sleep();
-        }
-        x ++;
-    }
-}
-void B () { 
-    int x = 0;
-    while(1) {
-        if(x % 100000 == 0) {
-            printk("b");
-            wakeup(PCB_of_thread_C);
-            sleep();
-        }
-        x ++;
-    }
-}
-void C () { 
-    int x = 0;
-    while(1) {
-        if(x % 100000 == 0) {
-            printk("c");
-            wakeup(PCB_of_thread_D);
-            sleep();
-        }
-        x ++;
-    }
-}
-void D () { 
-    int x = 0;
-    while(1) {
-        if(x % 100000 == 0) {
-            printk("d");
-            wakeup(PCB_of_thread_A);
-            sleep();
-        }
-        x ++;
-    }
-}
 void
 os_init_cont(void) {
 	/* Reset the GDT. Although user processes in Nanos run in Ring 0,
@@ -98,10 +49,7 @@ os_init_cont(void) {
 	/* Initialize processes. */
 	init_proc();
 
-	PCB_of_thread_A = create_kthread(A);
-	PCB_of_thread_B = create_kthread(B);
-	PCB_of_thread_C = create_kthread(C);
-	PCB_of_thread_D = create_kthread(D);
+	printk("Hello, OS World!\n");
 
 	sti();
 
