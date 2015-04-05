@@ -9,6 +9,7 @@ void init_segment(void);
 void init_idt(void);
 void init_intr(void);
 void init_proc(void);
+void init_driver(void);
 
 void os_init_cont(void);
 
@@ -50,8 +51,10 @@ os_init_cont(void) {
 	/* Initialize processes. */
 	init_proc();
 
+	/* Initialize drivers. */
+	init_driver();
+
 	printk("Hello, OS World!\n");
-	test_setup();
 
 	sti();
 

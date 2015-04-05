@@ -1,4 +1,4 @@
-#include "hal.h"
+#include "drivers/hal.h"
 
 void init_hal();
 void init_timer();

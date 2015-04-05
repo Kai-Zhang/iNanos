@@ -2,10 +2,11 @@
 #include "x86/x86.h"
 #include "tty.h"
 #include "term.h"
+#include "drivers/hal.h"
 
 void
 send_keymsg(void) {
-	Msg m;
+	Message m;
 	m.type = MSG_TTY_GETKEY;
 	m.src = MSG_HARD_INTR;
 	send(TTY, &m);

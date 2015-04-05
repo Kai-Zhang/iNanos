@@ -1,26 +1,26 @@
 #include "kernel.h"
-#include "string.h"
-#include "hal.h"
+#include "lib/string.h"
+#include "drivers/hal.h"
 
 #define NR_DEV 16
 
 static Dev dev_pool[NR_DEV];
-static ListHead free, devices;
+static struct list_head free, devices;
 
 
 void init_hal(void) {
 	int i = 0;
-	list_init(&free);
+	INIT_LIST_HEAD(&free);
 	for (i = 0; i < NR_DEV; i ++) {
-		list_add_before(&free, &dev_pool[i].list);
+		list_add_tail(&dev_pool[i].list, &free);
 	}
-	list_init(&devices);
+	INIT_LIST_HEAD(&devices);
 }
 
 static Dev *hal_get(const char *name) {
 	lock();
-	ListHead *it;
-	list_foreach(it, &devices) {
+	struct list_head *it;
+	list_for_each(it, &devices) {
 		Dev *dev = list_entry(it, Dev, list);
 		assert(dev);
 		if (strcmp(dev->name, name) == 0) {
@@ -52,15 +52,15 @@ void hal_register(const char *name, pid_t pid, int dev_id) {
 	dev->name = name;
 	dev->pid = pid;
 	dev->dev_id = dev_id;
-	list_add_before(&devices, &dev->list);
+	list_add_tail(&dev->list, &devices);
 	unlock();
 }
 
 void hal_list(void) {
 	lock();
-	ListHead *it;
+	struct list_head *it;
 	printk("listing all registed devices:\n");
-	list_foreach(it, &devices) {
+	list_for_each(it, &devices) {
 		Dev *dev = list_entry(it, Dev, list);
 		assert(dev);
 		printk("%s #%d, #%d\n", dev->name, dev->pid, dev->dev_id);
@@ -73,7 +73,7 @@ dev_rw(const char *dev_name, int type, pid_t reqst_pid, void *buf, off_t offset,
 	Dev *dev = hal_get(dev_name);
 	assert(dev != NULL);
 
-	Msg m;
+	Message m;
 	m.src = current->pid;
 	m.type = type;
 	m.dev_id = dev->dev_id;

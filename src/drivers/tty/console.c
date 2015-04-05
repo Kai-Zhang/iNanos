@@ -1,9 +1,10 @@
 #include "kernel.h"
 #include "x86/x86.h"
 #include "tty.h"
-#include "string.h"
+#include "lib/string.h"
 #include "term.h"
-#include "time.h"
+#include "drivers/time.h"
+#include "drivers/hal.h"
 
 Console ttys[NR_TTY];
 Console *current_consl;
@@ -14,6 +15,8 @@ static uint16_t *vmem = (void*)pa_to_va(0xb8000);
 static uint16_t vbuf[NR_TTY][SCR_W * SCR_H * 2];
 
 char banner[SCR_W + 1];
+
+extern void copy_from_kernel(PCB *, void *, void *, int);
 
 const char*
 get_current_tty(void) {
@@ -151,11 +154,11 @@ get_cooked(Console *c, pid_t pid, char *buf, int count) {
 }
 
 void
-read_request(Msg *m) {
+read_request(Message *m) {
 	Console *c = &ttys[m->dev_id];
 	if (c->f == c->r) {
 		if (c->rtop == RSTK_SZ) panic("too many read request");
-		memcpy(&c->rstk[c->rtop ++], m, sizeof(Msg));
+		memcpy(&c->rstk[c->rtop ++], m, sizeof(Message));
 	} else {
 		int nread = get_cooked(c, m->req_pid, m->buf, m->len);
 		m->ret = nread;
@@ -270,7 +273,7 @@ init_consl(int tty_index) {
 static void
 send_updatemsg(void) {
 	if (get_jiffy() % (HZ / 10) == 0) {
-		Msg m;
+		Message m;
 		m.src = MSG_HARD_INTR;
 		m.type = MSG_TTY_UPDATE;
 		send(TTY, &m);

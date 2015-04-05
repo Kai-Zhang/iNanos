@@ -2,7 +2,7 @@
 #define __HAL_H__
 
 #include "common.h"
-#include "adt/list.h"
+#include "lib/list.h"
 
 #define DEV_READ 1
 #define DEV_WRITE 2
@@ -16,7 +16,7 @@ typedef struct Device {
 	pid_t pid;
 	int dev_id;
 	
-	ListHead list;
+	struct list_head list;
 } Dev;
 
 size_t dev_read(const char *dev_name, pid_t reqst_pid, void *buf ,off_t offset, size_t len);

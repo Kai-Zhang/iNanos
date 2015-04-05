@@ -5,7 +5,7 @@ static int tty_idx = 1;
 
 static void
 getty(void) {
-	char name[] = "tty0", buf[256];
+	char name[] = "tty0";//, buf[256];
 	lock();
 	name[3] += (tty_idx ++);
 	unlock();

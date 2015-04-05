@@ -1,5 +1,5 @@
 #include "process.h"
-#include "string.h"
+#include "lib/string.h"
 
 void copy_from_kernel(PCB* pcb, void* dest, void* src, int len){
 	memcpy(dest, src, len);

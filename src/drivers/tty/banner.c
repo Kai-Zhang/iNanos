@@ -1,5 +1,5 @@
 #include "kernel.h"
-#include "time.h"
+#include "drivers/time.h"
 #include "tty.h"
 #include "term.h"
 

@@ -3,7 +3,6 @@
 
 void
 send(pid_t dst, Message *msg) {
-	msg->src = current->pid;
 	msg->dst = dst;
 	P(&(PCB_pool[dst].mutex));
 	Message *new_msg = NULL;

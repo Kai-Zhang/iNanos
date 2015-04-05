@@ -4,6 +4,12 @@
 PCB *readyq, *freeq, *sleepq;
 PCB PCB_pool[KERNEL_PCB_MAX];
 extern PCB idle;
+extern PCB *next;
+
+PCB*
+fetch_pcb(pid_t pid) {
+	return &PCB_pool[pid];
+}
 
 PCB*
 create_kthread(void *fun) {
@@ -40,6 +46,10 @@ create_kthread(void *fun) {
 
 void
 init_proc() {
+	current = &idle;
+	current->lock_counter = 0;
+	current->unlock_status = 0;
+
 	readyq = &idle;
 	INIT_LIST_HEAD(&(idle.ready));
 	INIT_LIST_HEAD(&(idle.sleep));

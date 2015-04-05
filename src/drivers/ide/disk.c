@@ -1,7 +1,7 @@
 #include "common.h"
 #include "x86/x86.h"
-#include "msg.h"
-#include "hal.h"
+#include "process/message.h"
+#include "drivers/hal.h"
 #include "ide.h"
 
 #define IDE_PORT_CTRL   0x3F6
@@ -34,7 +34,7 @@ issue_write() {
 void
 disk_do_read(void *buf, uint32_t sector) {
 	int i;
-	Msg m;
+	Message m;
 
 	ide_prepare(sector);
 	issue_read();
@@ -51,7 +51,7 @@ disk_do_read(void *buf, uint32_t sector) {
 void
 disk_do_write(void *buf, uint32_t sector) {
 	int i;
-	Msg m;
+	Message m;
 
 	ide_prepare(sector);
 	issue_write();

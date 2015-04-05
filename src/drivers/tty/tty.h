@@ -18,7 +18,7 @@ typedef struct Console {
 	char cbuf[CBUF_SZ + 1];
 	int i, f, r;
 	int rtop;
-	Msg rstk[RSTK_SZ];
+	Message rstk[RSTK_SZ];
 } Console;
 
 extern pid_t TTY;
@@ -31,6 +31,6 @@ void consl_feed(Console *c, int key);
 void consl_accept(Console *c, char ch);
 void readkey(void);
 void update_banner(void);
-void read_request(Msg *m);
+void read_request(Message *m);
 
 #endif

@@ -1,7 +1,7 @@
 #include "kernel.h"
-#include "hal.h"
+#include "drivers/hal.h"
+#include "drivers/time.h"
 #include "ide.h"
-#include "time.h"
 
 #define WRITEBACK_TIME  1  /* writeback cache for every 1 second */
 
@@ -16,6 +16,9 @@ void cache_writeback(void);
 uint8_t read_byte(uint32_t);
 void write_byte(uint32_t, uint8_t);
 
+extern void copy_to_kernel(PCB *, void *, void *, int);
+extern void copy_from_kernel(PCB *, void *, void *, int);
+
 void
 init_ide(void) {
 	cache_init();
@@ -29,7 +32,7 @@ init_ide(void) {
 
 static void
 ide_driver_thread(void) {
-	static Msg m;
+	static Message m;
 
 	while (true) {
 		receive(ANY, &m);
@@ -48,9 +51,9 @@ ide_driver_thread(void) {
 				copy_from_kernel(fetch_pcb(m.req_pid), m.buf + i, &data, 1);
 			}
 			m.ret = i;
-			m.dest = m.src;
+			m.dst = m.src;
 			m.src = IDE;
-			send(m.dest, &m);
+			send(m.dst, &m);
 		} else if (m.type == DEV_WRITE) {
 			uint32_t i;
 			uint8_t data;
@@ -59,9 +62,9 @@ ide_driver_thread(void) {
 				write_byte(m.offset + i, data);
 			}
 			m.ret = i;
-			m.dest = m.src;
+			m.dst = m.src;
 			m.src = IDE;
-			send(m.dest, &m);
+			send(m.dst, &m);
 		}
 		else {
 			assert(0);
@@ -71,14 +74,14 @@ ide_driver_thread(void) {
 
 static void
 ide_intr(void) {
-	static Msg m;
+	static Message m;
 	m.type = IDE_READY;
 	m.src = MSG_HARD_INTR;
 	send(IDE, &m);
 }
 static void
 time_intr(void) {
-	static Msg m;
+	static Message m;
 	static uint32_t counter = 0;
 	counter = (counter + 1) % (WRITEBACK_TIME * HZ);
 	if (counter == 0) {

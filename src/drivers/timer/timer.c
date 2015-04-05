@@ -1,8 +1,8 @@
 #include "kernel.h"
 #include "x86/x86.h"
-#include "hal.h"
-#include "time.h"
-#include "string.h"
+#include "drivers/hal.h"
+#include "drivers/time.h"
+#include "lib/string.h"
 
 #define PORT_TIME 0x40
 #define PORT_RTC  0x70
@@ -29,7 +29,7 @@ void init_timer(void) {
 
 static void
 timer_driver_thread(void) {
-	static Msg m;
+	static Message m;
 	
 	while (true) {
 		receive(ANY, &m);

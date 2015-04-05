@@ -1,0 +1,765 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+A	src/testcase.c	/^A (void) { $/;"	function	signature:(void)
+ANY	include/process/message.h	6;"	macro
+ASFLAGS	Makefile	/^ASFLAGS = -ggdb -m32 -MD -I.\/include$/;"	macro
+B	src/testcase.c	/^B (void) { $/;"	function	signature:(void)
+C	src/testcase.c	/^C (void) { $/;"	function	signature:(void)
+CBUF_SZ	src/drivers/tty/term.h	35;"	macro
+CBUF_SZ	src/drivers/tty/tty.h	8;"	macro
+CC	Makefile	/^CC      = gcc$/;"	macro
+CFILES	Makefile	/^CFILES  = $(shell find src\/ -name "*.c")$/;"	macro
+CFLAGS	Makefile	/^CFLAGS  = -m32 -static -ggdb -MD -Wall -Werror -I.\/include \\$/;"	macro
+CR0	include/x86/cpu.h	/^typedef union CR0 {$/;"	union
+CR0	include/x86/cpu.h	/^} CR0;$/;"	typedef	typeref:union:CR0
+CR0::__anon7::alignment_mask	include/x86/cpu.h	/^		uint32_t alignment_mask      : 1;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::cache_disable	include/x86/cpu.h	/^		uint32_t cache_disable       : 1;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::emulation	include/x86/cpu.h	/^		uint32_t emulation           : 1;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::extension_type	include/x86/cpu.h	/^		uint32_t extension_type      : 1;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::monitor_coprocessor	include/x86/cpu.h	/^		uint32_t monitor_coprocessor : 1;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::no_write_through	include/x86/cpu.h	/^		uint32_t no_write_through    : 1;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::numeric_error	include/x86/cpu.h	/^		uint32_t numeric_error       : 1;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::pad0	include/x86/cpu.h	/^		uint32_t pad0                : 10;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::pad1	include/x86/cpu.h	/^		uint32_t pad1                : 1; $/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::pad2	include/x86/cpu.h	/^		uint32_t pad2                : 10;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::paging	include/x86/cpu.h	/^		uint32_t paging              : 1;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::protect_enable	include/x86/cpu.h	/^		uint32_t protect_enable      : 1;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::task_switched	include/x86/cpu.h	/^		uint32_t task_switched       : 1;$/;"	member	struct:CR0::__anon7	access:public
+CR0::__anon7::write_protect	include/x86/cpu.h	/^		uint32_t write_protect       : 1; $/;"	member	struct:CR0::__anon7	access:public
+CR0::val	include/x86/cpu.h	/^	uint32_t val;$/;"	member	union:CR0	access:public
+CR3	include/x86/cpu.h	/^typedef union CR3 {$/;"	union
+CR3	include/x86/cpu.h	/^} CR3;$/;"	typedef	typeref:union:CR3
+CR3::__anon8::pad0	include/x86/cpu.h	/^		uint32_t pad0                : 3;$/;"	member	struct:CR3::__anon8	access:public
+CR3::__anon8::pad1	include/x86/cpu.h	/^		uint32_t pad1                : 7;$/;"	member	struct:CR3::__anon8	access:public
+CR3::__anon8::page_cache_disable	include/x86/cpu.h	/^		uint32_t page_cache_disable  : 1;$/;"	member	struct:CR3::__anon8	access:public
+CR3::__anon8::page_directory_base	include/x86/cpu.h	/^		uint32_t page_directory_base : 20;$/;"	member	struct:CR3::__anon8	access:public
+CR3::__anon8::page_write_through	include/x86/cpu.h	/^		uint32_t page_write_through  : 1;$/;"	member	struct:CR3::__anon8	access:public
+CR3::val	include/x86/cpu.h	/^	uint32_t val;$/;"	member	union:CR3	access:public
+C_BLACK	src/drivers/tty/term.h	38;"	macro
+C_BLUE	src/drivers/tty/term.h	39;"	macro
+C_LWHITE	src/drivers/tty/term.h	41;"	macro
+C_WHITE	src/drivers/tty/term.h	40;"	macro
+Console	src/drivers/tty/tty.h	/^typedef struct Console {$/;"	struct
+Console	src/drivers/tty/tty.h	/^} Console;$/;"	typedef	typeref:struct:Console
+Console::cbuf	src/drivers/tty/tty.h	/^	char cbuf[CBUF_SZ + 1];$/;"	member	struct:Console	access:public
+Console::f	src/drivers/tty/tty.h	/^	int i, f, r;$/;"	member	struct:Console	access:public
+Console::h	src/drivers/tty/tty.h	/^	int w, h, wh;$/;"	member	struct:Console	access:public
+Console::i	src/drivers/tty/tty.h	/^	int i, f, r;$/;"	member	struct:Console	access:public
+Console::lbuf	src/drivers/tty/tty.h	/^	char lbuf[LBUF_SZ + 1];$/;"	member	struct:Console	access:public
+Console::name	src/drivers/tty/tty.h	/^	const char *name;$/;"	member	struct:Console	access:public
+Console::pos	src/drivers/tty/tty.h	/^	int size, pos;$/;"	member	struct:Console	access:public
+Console::r	src/drivers/tty/tty.h	/^	int i, f, r;$/;"	member	struct:Console	access:public
+Console::rstk	src/drivers/tty/tty.h	/^	Msg rstk[RSTK_SZ];$/;"	member	struct:Console	access:public
+Console::rtop	src/drivers/tty/tty.h	/^	int rtop;$/;"	member	struct:Console	access:public
+Console::scr	src/drivers/tty/tty.h	/^	uint16_t *scr;$/;"	member	struct:Console	access:public
+Console::size	src/drivers/tty/tty.h	/^	int size, pos;$/;"	member	struct:Console	access:public
+Console::vbuf	src/drivers/tty/tty.h	/^	uint16_t *vbuf;$/;"	member	struct:Console	access:public
+Console::w	src/drivers/tty/tty.h	/^	int w, h, wh;$/;"	member	struct:Console	access:public
+Console::wh	src/drivers/tty/tty.h	/^	int w, h, wh;$/;"	member	struct:Console	access:public
+D	src/testcase.c	/^D (void) { $/;"	function	signature:(void)
+DEV_READ	include/drivers/hal.h	7;"	macro
+DEV_WRITE	include/drivers/hal.h	8;"	macro
+DPL_KERNEL	include/x86/memory.h	9;"	macro
+DPL_USER	include/x86/memory.h	10;"	macro
+Dev	include/drivers/hal.h	/^} Dev;$/;"	typedef	typeref:struct:Device
+Device	include/drivers/hal.h	/^typedef struct Device {$/;"	struct
+Device::dev_id	include/drivers/hal.h	/^	int dev_id;$/;"	member	struct:Device	access:public
+Device::list	include/drivers/hal.h	/^	ListHead list;$/;"	member	struct:Device	access:public
+Device::name	include/drivers/hal.h	/^	const char *name;$/;"	member	struct:Device	access:public
+Device::pid	include/drivers/hal.h	/^	pid_t pid;$/;"	member	struct:Device	access:public
+ELFHeader	boot/boot.h	/^struct ELFHeader {$/;"	struct
+ELFHeader::ehsize	boot/boot.h	/^	unsigned short ehsize;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::elf	boot/boot.h	/^	unsigned char  elf[12];$/;"	member	struct:ELFHeader	access:public
+ELFHeader::entry	boot/boot.h	/^	unsigned int   entry;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::flags	boot/boot.h	/^	unsigned int   flags;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::machine	boot/boot.h	/^	unsigned short machine;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::magic	boot/boot.h	/^	unsigned int   magic;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::phentsize	boot/boot.h	/^	unsigned short phentsize;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::phnum	boot/boot.h	/^	unsigned short phnum;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::phoff	boot/boot.h	/^	unsigned int   phoff;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::shentsize	boot/boot.h	/^	unsigned short shentsize;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::shnum	boot/boot.h	/^	unsigned short shnum;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::shoff	boot/boot.h	/^	unsigned int   shoff;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::shstrndx	boot/boot.h	/^	unsigned short shstrndx;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::type	boot/boot.h	/^	unsigned short type;$/;"	member	struct:ELFHeader	access:public
+ELFHeader::version	boot/boot.h	/^	unsigned int   version;$/;"	member	struct:ELFHeader	access:public
+FREQ_8253	src/drivers/timer/timer.c	9;"	macro	file:
+FREQ_8253	src/testcase.c	15;"	macro	file:
+GDT_ENTRY	boot/asm.h	2;"	macro
+GateDesc	include/x86/memory.h	/^} GateDesc;$/;"	typedef	typeref:struct:GateDescriptor
+GateDescriptor	include/x86/memory.h	/^typedef struct GateDescriptor {$/;"	struct
+GateDescriptor::offset_15_0	include/x86/memory.h	/^	uint32_t offset_15_0      : 16;$/;"	member	struct:GateDescriptor	access:public
+GateDescriptor::offset_31_16	include/x86/memory.h	/^	uint32_t offset_31_16     : 16;$/;"	member	struct:GateDescriptor	access:public
+GateDescriptor::pad0	include/x86/memory.h	/^	uint32_t pad0             : 8;$/;"	member	struct:GateDescriptor	access:public
+GateDescriptor::present	include/x86/memory.h	/^	uint32_t present          : 1;$/;"	member	struct:GateDescriptor	access:public
+GateDescriptor::privilege_level	include/x86/memory.h	/^	uint32_t privilege_level  : 2;$/;"	member	struct:GateDescriptor	access:public
+GateDescriptor::segment	include/x86/memory.h	/^	uint32_t segment          : 16;$/;"	member	struct:GateDescriptor	access:public
+GateDescriptor::system	include/x86/memory.h	/^	uint32_t system           : 1;$/;"	member	struct:GateDescriptor	access:public
+GateDescriptor::type	include/x86/memory.h	/^	uint32_t type             : 4;$/;"	member	struct:GateDescriptor	access:public
+HZ	include/drivers/time.h	4;"	macro
+HZ	src/testcase.c	16;"	macro	file:
+IDE	src/drivers/ide/ide.c	/^pid_t IDE;$/;"	variable
+IDE_PORT_BASE	src/drivers/ide/disk.c	8;"	macro	file:
+IDE_PORT_CTRL	src/drivers/ide/disk.c	7;"	macro	file:
+IDE_READY	src/drivers/ide/ide.h	4;"	macro
+IDE_WRITEBACK	src/drivers/ide/ide.h	5;"	macro
+INIT_LIST_HEAD	include/lib/list.h	29;"	macro
+INTERRUPT_GATE_32	src/irq/idt.c	4;"	macro	file:
+IRQ_SLAVE	src/irq/i8259.c	5;"	macro	file:
+IRQ_t	src/irq/irq_handle.c	/^struct IRQ_t {$/;"	struct	file:
+IRQ_t::next	src/irq/irq_handle.c	/^	struct IRQ_t *next;$/;"	member	struct:IRQ_t	typeref:struct:IRQ_t::IRQ_t	file:	access:public
+IRQ_t::routine	src/irq/irq_handle.c	/^	void (*routine)(void);$/;"	member	struct:IRQ_t	file:	access:public
+KERNEL_PCB_MAX	include/process/pcb.h	10;"	macro
+KMEM	include/memory.h	24;"	macro
+KOFFSET	boot/main.c	13;"	macro	file:
+KOFFSET	include/memory.h	6;"	macro
+KSTACK_SIZE	include/process/pcb.h	8;"	macro
+K_ALT	src/drivers/tty/term.h	8;"	macro
+K_BACK	src/drivers/tty/term.h	11;"	macro
+K_CAPS	src/drivers/tty/term.h	4;"	macro
+K_CTRL	src/drivers/tty/term.h	7;"	macro
+K_DEL	src/drivers/tty/term.h	21;"	macro
+K_END	src/drivers/tty/term.h	19;"	macro
+K_ENTR	src/drivers/tty/term.h	10;"	macro
+K_F1	src/drivers/tty/term.h	23;"	macro
+K_F12	src/drivers/tty/term.h	29;"	macro
+K_F2	src/drivers/tty/term.h	24;"	macro
+K_F3	src/drivers/tty/term.h	25;"	macro
+K_F4	src/drivers/tty/term.h	26;"	macro
+K_F5	src/drivers/tty/term.h	27;"	macro
+K_F6	src/drivers/tty/term.h	28;"	macro
+K_HOME	src/drivers/tty/term.h	18;"	macro
+K_INS	src/drivers/tty/term.h	20;"	macro
+K_LEFT	src/drivers/tty/term.h	13;"	macro
+K_LSHFT	src/drivers/tty/term.h	5;"	macro
+K_PDWN	src/drivers/tty/term.h	17;"	macro
+K_PUP	src/drivers/tty/term.h	16;"	macro
+K_RIGHT	src/drivers/tty/term.h	14;"	macro
+K_RSHFT	src/drivers/tty/term.h	6;"	macro
+LBUF_SZ	src/drivers/tty/term.h	34;"	macro
+LBUF_SZ	src/drivers/tty/tty.h	7;"	macro
+LD	Makefile	/^LD      = ld$/;"	macro
+LDFLAGS	Makefile	/^LDFLAGS = -melf_i386$/;"	macro
+LIST_HEAD	include/lib/list.h	26;"	macro
+LIST_HEAD_INIT	include/lib/list.h	24;"	macro
+MSGBUF_SIZE	include/process/pcb.h	9;"	macro
+MSG_HARD_INTR	include/drivers/hal.h	10;"	macro
+MSG_TTY_GETKEY	src/drivers/tty/tty.h	5;"	macro
+MSG_TTY_UPDATE	src/drivers/tty/tty.h	6;"	macro
+M_ALT	src/drivers/tty/term.h	32;"	macro
+M_CTRL	src/drivers/tty/term.h	31;"	macro
+Message	include/process/message.h	/^typedef struct Message {$/;"	struct
+Message	include/process/message.h	/^} Message;$/;"	typedef	typeref:struct:Message
+Message::__anon1::ret	include/process/message.h	/^		int ret;$/;"	member	union:Message::__anon1	access:public
+Message::__anon1::type	include/process/message.h	/^		int type;$/;"	member	union:Message::__anon1	access:public
+Message::__anon2::__anon3::buf	include/process/message.h	/^			void *buf;$/;"	member	struct:Message::__anon2::__anon3	access:public
+Message::__anon2::__anon3::dev_id	include/process/message.h	/^			int dev_id;$/;"	member	struct:Message::__anon2::__anon3	access:public
+Message::__anon2::__anon3::len	include/process/message.h	/^			size_t len;$/;"	member	struct:Message::__anon2::__anon3	access:public
+Message::__anon2::__anon3::offset	include/process/message.h	/^			off_t offset;$/;"	member	struct:Message::__anon2::__anon3	access:public
+Message::__anon2::__anon3::req_pid	include/process/message.h	/^			pid_t req_pid;$/;"	member	struct:Message::__anon2::__anon3	access:public
+Message::__anon2::i	include/process/message.h	/^		int i[5];$/;"	member	union:Message::__anon2	access:public
+Message::dst	include/process/message.h	/^	pid_t src, dst;$/;"	member	struct:Message	access:public
+Message::list	include/process/message.h	/^	struct list_head list;$/;"	member	struct:Message	typeref:struct:Message::list_head	access:public
+Message::src	include/process/message.h	/^	pid_t src, dst;$/;"	member	struct:Message	access:public
+NBUF	src/testcase.c	2;"	macro	file:
+NR_CONS	src/testcase.c	4;"	macro	file:
+NR_DEV	src/drivers/hal.c	5;"	macro	file:
+NR_HARD_INTR	src/irq/irq_handle.c	7;"	macro	file:
+NR_IRQ	include/x86/cpu.h	112;"	macro
+NR_IRQ_HANDLE	src/irq/irq_handle.c	4;"	macro	file:
+NR_PDE	include/x86/memory.h	29;"	macro
+NR_PROD	src/testcase.c	3;"	macro	file:
+NR_PTE	include/x86/memory.h	30;"	macro
+NR_SEC_CACHE	src/drivers/ide/cache.c	2;"	macro	file:
+NR_SEGMENTS	include/x86/memory.h	16;"	macro
+NR_TTY	src/drivers/tty/tty.h	4;"	macro
+NULL	include/common/const.h	7;"	macro
+OBJS	Makefile	/^OBJS    = $(CFILES:.c=.o) $(SFILES:.S=.o)$/;"	macro
+P	src/process/semaphore.c	/^P(Semaphore *sem) {$/;"	function	signature:(Semaphore *sem)
+PAGE_SIZE	include/x86/memory.h	28;"	macro
+PCB	include/process/pcb.h	/^typedef union PCB {$/;"	union
+PCB	include/process/pcb.h	/^} PCB;$/;"	typedef	typeref:union:PCB
+PCB::__anon4::amount	include/process/pcb.h	/^		Semaphore mutex, amount;$/;"	member	struct:PCB::__anon4	access:public
+PCB::__anon4::free	include/process/pcb.h	/^		struct list_head ready, sleep, free, sem;$/;"	member	struct:PCB::__anon4	typeref:struct:PCB::__anon4::	access:public
+PCB::__anon4::lock_counter	include/process/pcb.h	/^		int lock_counter, unlock_status;$/;"	member	struct:PCB::__anon4	access:public
+PCB::__anon4::messages	include/process/pcb.h	/^		Message *messages;$/;"	member	struct:PCB::__anon4	access:public
+PCB::__anon4::msgbuf	include/process/pcb.h	/^		Message msgbuf[MSGBUF_SIZE];$/;"	member	struct:PCB::__anon4	access:public
+PCB::__anon4::mutex	include/process/pcb.h	/^		Semaphore mutex, amount;$/;"	member	struct:PCB::__anon4	access:public
+PCB::__anon4::pid	include/process/pcb.h	/^		pid_t pid;$/;"	member	struct:PCB::__anon4	access:public
+PCB::__anon4::ready	include/process/pcb.h	/^		struct list_head ready, sleep, free, sem;$/;"	member	struct:PCB::__anon4	typeref:struct:PCB::__anon4::list_head	access:public
+PCB::__anon4::sem	include/process/pcb.h	/^		struct list_head ready, sleep, free, sem;$/;"	member	struct:PCB::__anon4	typeref:struct:PCB::__anon4::	access:public
+PCB::__anon4::sleep	include/process/pcb.h	/^		struct list_head ready, sleep, free, sem;$/;"	member	struct:PCB::__anon4	typeref:struct:PCB::__anon4::	access:public
+PCB::__anon4::tf	include/process/pcb.h	/^		void *tf;$/;"	member	struct:PCB::__anon4	access:public
+PCB::__anon4::unlock_status	include/process/pcb.h	/^		int lock_counter, unlock_status;$/;"	member	struct:PCB::__anon4	access:public
+PCB::kstack	include/process/pcb.h	/^	uint8_t kstack[KSTACK_SIZE];$/;"	member	union:PCB	access:public
+PCB_of_thread_A	src/testcase.c	/^static PCB *PCB_of_thread_A;$/;"	variable	file:
+PCB_of_thread_B	src/testcase.c	/^static PCB *PCB_of_thread_B;$/;"	variable	file:
+PCB_of_thread_C	src/testcase.c	/^static PCB *PCB_of_thread_C;$/;"	variable	file:
+PCB_of_thread_D	src/testcase.c	/^static PCB *PCB_of_thread_D;$/;"	variable	file:
+PCB_pool	include/process/pcb.h	/^extern PCB PCB_pool[KERNEL_PCB_MAX];$/;"	externvar
+PCB_pool	src/process/util.c	/^PCB PCB_pool[KERNEL_PCB_MAX];$/;"	variable
+PDE	include/x86/memory.h	/^} PDE;$/;"	typedef	typeref:union:PageDirectoryEntry
+PD_SIZE	include/x86/memory.h	31;"	macro
+PHY_MEM	include/memory.h	27;"	macro
+PORT_PIC_MASTER	src/irq/i8259.c	3;"	macro	file:
+PORT_PIC_SLAVE	src/irq/i8259.c	4;"	macro	file:
+PORT_RTC	src/drivers/timer/timer.c	8;"	macro	file:
+PORT_TIME	src/drivers/timer/timer.c	7;"	macro	file:
+PORT_TIME	src/testcase.c	14;"	macro	file:
+PTE	include/x86/memory.h	/^} PTE;$/;"	typedef	typeref:union:PageTableEntry
+PageDirectoryEntry	include/x86/memory.h	/^typedef union PageDirectoryEntry {$/;"	union
+PageDirectoryEntry::__anon5::accessed	include/x86/memory.h	/^		uint32_t accessed            : 1;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+PageDirectoryEntry::__anon5::pad0	include/x86/memory.h	/^		uint32_t pad0                : 6;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+PageDirectoryEntry::__anon5::page_cache_disable	include/x86/memory.h	/^		uint32_t page_cache_disable  : 1;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+PageDirectoryEntry::__anon5::page_frame	include/x86/memory.h	/^		uint32_t page_frame          : 20;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+PageDirectoryEntry::__anon5::page_write_through	include/x86/memory.h	/^		uint32_t page_write_through  : 1;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+PageDirectoryEntry::__anon5::present	include/x86/memory.h	/^		uint32_t present             : 1;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+PageDirectoryEntry::__anon5::read_write	include/x86/memory.h	/^		uint32_t read_write          : 1; $/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+PageDirectoryEntry::__anon5::user_supervisor	include/x86/memory.h	/^		uint32_t user_supervisor     : 1;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+PageDirectoryEntry::val	include/x86/memory.h	/^	uint32_t val;$/;"	member	union:PageDirectoryEntry	access:public
+PageTableEntry	include/x86/memory.h	/^typedef union PageTableEntry {$/;"	union
+PageTableEntry::__anon6::accessed	include/x86/memory.h	/^		uint32_t accessed            : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+PageTableEntry::__anon6::dirty	include/x86/memory.h	/^		uint32_t dirty               : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+PageTableEntry::__anon6::global	include/x86/memory.h	/^		uint32_t global              : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+PageTableEntry::__anon6::pad0	include/x86/memory.h	/^		uint32_t pad0                : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+PageTableEntry::__anon6::pad1	include/x86/memory.h	/^		uint32_t pad1                : 3;$/;"	member	struct:PageTableEntry::__anon6	access:public
+PageTableEntry::__anon6::page_cache_disable	include/x86/memory.h	/^		uint32_t page_cache_disable  : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+PageTableEntry::__anon6::page_frame	include/x86/memory.h	/^		uint32_t page_frame          : 20;$/;"	member	struct:PageTableEntry::__anon6	access:public
+PageTableEntry::__anon6::page_write_through	include/x86/memory.h	/^		uint32_t page_write_through  : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+PageTableEntry::__anon6::present	include/x86/memory.h	/^		uint32_t present             : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+PageTableEntry::__anon6::read_write	include/x86/memory.h	/^		uint32_t read_write          : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+PageTableEntry::__anon6::user_supervisor	include/x86/memory.h	/^		uint32_t user_supervisor     : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+PageTableEntry::val	include/x86/memory.h	/^	uint32_t val;$/;"	member	union:PageTableEntry	access:public
+ProgramHeader	boot/boot.h	/^struct ProgramHeader {$/;"	struct
+ProgramHeader::align	boot/boot.h	/^	unsigned int align;$/;"	member	struct:ProgramHeader	access:public
+ProgramHeader::filesz	boot/boot.h	/^	unsigned int filesz;$/;"	member	struct:ProgramHeader	access:public
+ProgramHeader::flags	boot/boot.h	/^	unsigned int flags;$/;"	member	struct:ProgramHeader	access:public
+ProgramHeader::memsz	boot/boot.h	/^	unsigned int memsz;$/;"	member	struct:ProgramHeader	access:public
+ProgramHeader::off	boot/boot.h	/^	unsigned int off;$/;"	member	struct:ProgramHeader	access:public
+ProgramHeader::paddr	boot/boot.h	/^	unsigned int paddr;$/;"	member	struct:ProgramHeader	access:public
+ProgramHeader::type	boot/boot.h	/^	unsigned int type;$/;"	member	struct:ProgramHeader	access:public
+ProgramHeader::vaddr	boot/boot.h	/^	unsigned int vaddr;$/;"	member	struct:ProgramHeader	access:public
+QEMU	Makefile	/^QEMU    = qemu-system-i386$/;"	macro
+RSTK_SZ	src/drivers/tty/tty.h	9;"	macro
+SCR_H	src/drivers/tty/term.h	44;"	macro
+SCR_W	src/drivers/tty/term.h	43;"	macro
+SECTSIZE	boot/main.c	12;"	macro	file:
+SEG_32BIT	include/x86/memory.h	5;"	macro
+SEG_4KB_GRANULARITY	include/x86/memory.h	6;"	macro
+SEG_ASM	boot/asm.h	11;"	macro
+SEG_CODEDATA	include/x86/memory.h	4;"	macro
+SEG_EXECUTABLE	include/x86/memory.h	14;"	macro
+SEG_KERNEL_CODE	include/x86/memory.h	18;"	macro
+SEG_KERNEL_DATA	include/x86/memory.h	19;"	macro
+SEG_NULL	include/x86/memory.h	17;"	macro
+SEG_NULLASM	boot/asm.h	5;"	macro
+SEG_READABLE	include/x86/memory.h	13;"	macro
+SEG_TSS	include/x86/memory.h	22;"	macro
+SEG_TSS_32BIT	include/x86/memory.h	7;"	macro
+SEG_USER_CODE	include/x86/memory.h	20;"	macro
+SEG_USER_DATA	include/x86/memory.h	21;"	macro
+SEG_WRITABLE	include/x86/memory.h	12;"	macro
+SELECTOR_KERNEL	include/x86/memory.h	24;"	macro
+SELECTOR_USER	include/x86/memory.h	25;"	macro
+SERIAL_PORT	src/lib/serial.c	3;"	macro	file:
+SFILES	Makefile	/^SFILES  = $(shell find src\/ -name "*.S")$/;"	macro
+SectorCache	src/drivers/ide/cache.c	/^struct SectorCache {$/;"	struct	file:
+SectorCache::content	src/drivers/ide/cache.c	/^	uint8_t content[512];$/;"	member	struct:SectorCache	file:	access:public
+SectorCache::dirty	src/drivers/ide/cache.c	/^	bool used, dirty;$/;"	member	struct:SectorCache	file:	access:public
+SectorCache::sector	src/drivers/ide/cache.c	/^	uint32_t sector;$/;"	member	struct:SectorCache	file:	access:public
+SectorCache::used	src/drivers/ide/cache.c	/^	bool used, dirty;$/;"	member	struct:SectorCache	file:	access:public
+SegDesc	include/x86/memory.h	/^} SegDesc;$/;"	typedef	typeref:struct:SegmentDescriptor
+SegmentDescriptor	include/x86/memory.h	/^typedef struct SegmentDescriptor {$/;"	struct
+SegmentDescriptor::base_15_0	include/x86/memory.h	/^	uint32_t base_15_0           : 16;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::base_23_16	include/x86/memory.h	/^	uint32_t base_23_16          : 8;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::base_31_24	include/x86/memory.h	/^	uint32_t base_31_24          : 8;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::granularity	include/x86/memory.h	/^	uint32_t granularity         : 1;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::limit_15_0	include/x86/memory.h	/^	uint32_t limit_15_0          : 16;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::limit_19_16	include/x86/memory.h	/^	uint32_t limit_19_16         : 4;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::operation_size	include/x86/memory.h	/^	uint32_t operation_size      : 1;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::pad0	include/x86/memory.h	/^	uint32_t pad0                : 1;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::present	include/x86/memory.h	/^	uint32_t present             : 1;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::privilege_level	include/x86/memory.h	/^	uint32_t privilege_level     : 2;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::segment_type	include/x86/memory.h	/^	uint32_t segment_type        : 1;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::soft_use	include/x86/memory.h	/^	uint32_t soft_use            : 1;$/;"	member	struct:SegmentDescriptor	access:public
+SegmentDescriptor::type	include/x86/memory.h	/^	uint32_t type                : 4;$/;"	member	struct:SegmentDescriptor	access:public
+Semaphore	include/process/semaphore.h	/^typedef struct Semaphore {$/;"	struct
+Semaphore	include/process/semaphore.h	/^} Semaphore;$/;"	typedef	typeref:struct:Semaphore
+Semaphore::block	include/process/semaphore.h	/^	struct list_head block;$/;"	member	struct:Semaphore	typeref:struct:Semaphore::list_head	access:public
+Semaphore::count	include/process/semaphore.h	/^	int count;$/;"	member	struct:Semaphore	access:public
+TIMER	src/drivers/timer/timer.c	/^pid_t TIMER;$/;"	variable
+TRAP_GATE_32	src/irq/idt.c	5;"	macro	file:
+TSS	include/x86/memory.h	/^typedef struct TSS {$/;"	struct
+TSS	include/x86/memory.h	/^} TSS;$/;"	typedef	typeref:struct:TSS
+TSS::dont_care	include/x86/memory.h	/^	uint8_t dont_care[88];$/;"	member	struct:TSS	access:public
+TSS::esp0	include/x86/memory.h	/^	uint32_t esp0;$/;"	member	struct:TSS	access:public
+TSS::prev	include/x86/memory.h	/^	uint32_t prev;			\/\/ don't care$/;"	member	struct:TSS	access:public
+TSS::ss0	include/x86/memory.h	/^	uint32_t ss0;$/;"	member	struct:TSS	access:public
+TTY	src/drivers/tty/tty.c	/^pid_t TTY;$/;"	variable
+TTY	src/drivers/tty/tty.h	/^extern pid_t TTY;$/;"	externvar
+Time	include/drivers/time.h	/^typedef struct Time {$/;"	struct
+Time	include/drivers/time.h	/^} Time;$/;"	typedef	typeref:struct:Time
+Time::day	include/drivers/time.h	/^	int year, month, day;$/;"	member	struct:Time	access:public
+Time::hour	include/drivers/time.h	/^	int hour, minute, second;$/;"	member	struct:Time	access:public
+Time::minute	include/drivers/time.h	/^	int hour, minute, second;$/;"	member	struct:Time	access:public
+Time::month	include/drivers/time.h	/^	int year, month, day;$/;"	member	struct:Time	access:public
+Time::second	include/drivers/time.h	/^	int hour, minute, second;$/;"	member	struct:Time	access:public
+Time::year	include/drivers/time.h	/^	int year, month, day;$/;"	member	struct:Time	access:public
+TrapFrame	include/x86/memory.h	/^typedef struct TrapFrame {$/;"	struct
+TrapFrame	include/x86/memory.h	/^} TrapFrame;$/;"	typedef	typeref:struct:TrapFrame
+TrapFrame::cs	include/x86/memory.h	/^	uint32_t eip, cs, eflags;							\/\/ execution state saved by hardware$/;"	member	struct:TrapFrame	access:public
+TrapFrame::ds	include/x86/memory.h	/^	uint32_t gs, fs, es, ds;							\/\/ data segment registers$/;"	member	struct:TrapFrame	access:public
+TrapFrame::eax	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+TrapFrame::ebp	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+TrapFrame::ebx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+TrapFrame::ecx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+TrapFrame::edi	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+TrapFrame::edx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+TrapFrame::eflags	include/x86/memory.h	/^	uint32_t eip, cs, eflags;							\/\/ execution state saved by hardware$/;"	member	struct:TrapFrame	access:public
+TrapFrame::eip	include/x86/memory.h	/^	uint32_t eip, cs, eflags;							\/\/ execution state saved by hardware$/;"	member	struct:TrapFrame	access:public
+TrapFrame::error_code	include/x86/memory.h	/^	uint32_t error_code;								\/\/ error code$/;"	member	struct:TrapFrame	access:public
+TrapFrame::es	include/x86/memory.h	/^	uint32_t gs, fs, es, ds;							\/\/ data segment registers$/;"	member	struct:TrapFrame	access:public
+TrapFrame::esi	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+TrapFrame::esp	include/x86/memory.h	/^	uint32_t esp, ss;									\/\/ only uses when DPL = 3$/;"	member	struct:TrapFrame	access:public
+TrapFrame::fs	include/x86/memory.h	/^	uint32_t gs, fs, es, ds;							\/\/ data segment registers$/;"	member	struct:TrapFrame	access:public
+TrapFrame::gs	include/x86/memory.h	/^	uint32_t gs, fs, es, ds;							\/\/ data segment registers$/;"	member	struct:TrapFrame	access:public
+TrapFrame::irq	include/x86/memory.h	/^	int32_t irq;										\/\/ #irq$/;"	member	struct:TrapFrame	access:public
+TrapFrame::ss	include/x86/memory.h	/^	uint32_t esp, ss;									\/\/ only uses when DPL = 3$/;"	member	struct:TrapFrame	access:public
+TrapFrame::xxx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+V	src/process/semaphore.c	/^V(Semaphore *sem) {$/;"	function	signature:(Semaphore *sem)
+WRITEBACK_TIME	src/drivers/ide/ide.c	6;"	macro	file:
+__ASSERT_H__	include/common/assert.h	2;"	macro
+__COMMON_H__	include/common.h	2;"	macro
+__CONST_H__	include/common/const.h	2;"	macro
+__HAL_H__	include/drivers/hal.h	2;"	macro
+__IDE_H__	src/drivers/ide/ide.h	2;"	macro
+__KERNEL_H__	include/kernel.h	2;"	macro
+__LIST_H__	include/lib/list.h	2;"	macro
+__MEMORY_H__	include/memory.h	2;"	macro
+__MESSAGE_H__	include/process/message.h	2;"	macro
+__PCB_H__	include/process/pcb.h	2;"	macro
+__PROCESS_H__	include/process.h	2;"	macro
+__SEMAPHORE_H__	include/process/semaphore.h	2;"	macro
+__STRING_H__	include/lib/string.h	2;"	macro
+__TERM_H__	src/drivers/tty/term.h	2;"	macro
+__TIME_H__	include/drivers/time.h	2;"	macro
+__TTY_H__	src/drivers/tty/tty.h	2;"	macro
+__TYPES_H__	include/common/types.h	2;"	macro
+__X86_CPU_H__	include/x86/cpu.h	2;"	macro
+__X86_H__	include/x86/x86.h	2;"	macro
+__X86_IO_H__	include/x86/io.h	2;"	macro
+__X86_MEMORY_H__	include/x86/memory.h	2;"	macro
+__list_add	include/lib/list.h	/^static inline void __list_add(struct list_head *new,$/;"	function	signature:(struct list_head *new, struct list_head *prev, struct list_head *next)
+__list_del	include/lib/list.h	/^static inline void __list_del(struct list_head *prev, struct list_head *next)$/;"	function	signature:(struct list_head *prev, struct list_head *next)
+__list_splice	include/lib/list.h	/^static inline void __list_splice(struct list_head *list,$/;"	function	signature:(struct list_head *list, struct list_head *head)
+accelerate	src/testcase.c	/^accelerate(void) {$/;"	function	signature:(void)
+accessed	include/x86/memory.h	/^		uint32_t accessed            : 1;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+accessed	include/x86/memory.h	/^		uint32_t accessed            : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+add_irq_handle	src/irq/irq_handle.c	/^add_irq_handle(int irq, void (*func)(void) ) {$/;"	function	signature:(int irq, void (*func)(void) )
+align	boot/boot.h	/^	unsigned int align;$/;"	member	struct:ProgramHeader	access:public
+align_to_page	include/x86/memory.h	35;"	macro
+align_to_page	src/memory/kvm.c	/^static PDE kpdir[NR_PDE] align_to_page;						\/\/ kernel page directory$/;"	variable	file:
+align_to_page	src/memory/kvm.c	/^static PTE kptable[PHY_MEM \/ PAGE_SIZE] align_to_page;		\/\/ kernel page tables$/;"	variable	file:
+alignment_mask	include/x86/cpu.h	/^		uint32_t alignment_mask      : 1;$/;"	member	struct:CR0::__anon7	access:public
+alt	src/drivers/tty/keyboard.c	/^static int caps, ctrl, alt, shft;$/;"	variable	file:
+amount	include/process/pcb.h	/^		Semaphore mutex, amount;$/;"	member	struct:PCB::__anon4	access:public
+ani	src/drivers/tty/banner.c	/^static char ani[] = "-\\\\|\/";$/;"	variable	file:
+asm_do_irq	src/irq/do_irq.S	/^asm_do_irq:$/;"	label
+assert	include/common/assert.h	17;"	macro
+backsp	src/drivers/tty/console.c	/^backsp(Console *c) {$/;"	function	file:	signature:(Console *c)
+banner	src/drivers/tty/banner.c	/^extern char banner[SCR_W + 1];$/;"	externvar
+banner	src/drivers/tty/console.c	/^char banner[SCR_W + 1];$/;"	variable
+base_15_0	include/x86/memory.h	/^	uint32_t base_15_0           : 16;$/;"	member	struct:SegmentDescriptor	access:public
+base_23_16	include/x86/memory.h	/^	uint32_t base_23_16          : 8;$/;"	member	struct:SegmentDescriptor	access:public
+base_31_24	include/x86/memory.h	/^	uint32_t base_31_24          : 8;$/;"	member	struct:SegmentDescriptor	access:public
+block	include/process/semaphore.h	/^	struct list_head block;$/;"	member	struct:Semaphore	typeref:struct:Semaphore::list_head	access:public
+bool	include/common/types.h	/^typedef unsigned char  bool;$/;"	typedef
+bootmain	boot/main.c	/^bootmain(void) {$/;"	function	signature:(void)
+buf	include/process/message.h	/^			void *buf;$/;"	member	struct:Message::__anon2::__anon3	access:public
+buf	src/testcase.c	/^int buf[NBUF];$/;"	variable
+cache	src/drivers/ide/cache.c	/^static struct SectorCache cache[NR_SEC_CACHE];$/;"	variable	typeref:struct:SectorCache	file:
+cache_disable	include/x86/cpu.h	/^		uint32_t cache_disable       : 1;$/;"	member	struct:CR0::__anon7	access:public
+cache_fetch	src/drivers/ide/cache.c	/^cache_fetch(uint32_t sector) {$/;"	function	file:	signature:(uint32_t sector)
+cache_init	src/drivers/ide/cache.c	/^cache_init(void) {$/;"	function	signature:(void)
+cache_writeback	src/drivers/ide/cache.c	/^cache_writeback(void) {$/;"	function	signature:(void)
+caps	src/drivers/tty/keyboard.c	/^static int caps, ctrl, alt, shft;$/;"	variable	file:
+cbuf	src/drivers/tty/tty.h	/^	char cbuf[CBUF_SZ + 1];$/;"	member	struct:Console	access:public
+cli	include/x86/cpu.h	/^cli(void) {$/;"	function	signature:(void)
+consl_accept	src/drivers/tty/console.c	/^consl_accept(Console *c, char ch) {$/;"	function	signature:(Console *c, char ch)
+consl_feed	src/drivers/tty/console.c	/^consl_feed(Console *c, int key) {$/;"	function	signature:(Console *c, int key)
+consl_sync	src/drivers/tty/console.c	/^consl_sync(Console *c) {$/;"	function	signature:(Console *c)
+consl_writec	src/drivers/tty/console.c	/^consl_writec(Console *c, char ch) {$/;"	function	signature:(Console *c, char ch)
+consumer	src/testcase.c	/^consumer(void) {$/;"	function	signature:(void)
+content	src/drivers/ide/cache.c	/^	uint8_t content[512];$/;"	member	struct:SectorCache	file:	access:public
+cook	src/drivers/tty/console.c	/^cook(Console *c) {$/;"	function	file:	signature:(Console *c)
+copy_from_kernel	src/lib/kcpy.c	/^void copy_from_kernel(PCB* pcb, void* dest, void* src, int len){$/;"	function	signature:(PCB* pcb, void* dest, void* src, int len)
+copy_to_kernel	src/lib/kcpy.c	/^void copy_to_kernel(PCB* pcb, void* dest, void* src, int len){$/;"	function	signature:(PCB* pcb, void* dest, void* src, int len)
+count	include/process/semaphore.h	/^	int count;$/;"	member	struct:Semaphore	access:public
+cr	src/drivers/tty/console.c	/^cr(Console *c) {$/;"	function	file:	signature:(Console *c)
+create_kthread	src/process/util.c	/^create_kthread(void *fun) {$/;"	function	signature:(void *fun)
+cs	include/x86/memory.h	/^	uint32_t eip, cs, eflags;							\/\/ execution state saved by hardware$/;"	member	struct:TrapFrame	access:public
+ctrl	src/drivers/tty/keyboard.c	/^static int caps, ctrl, alt, shft;$/;"	variable	file:
+current	include/process/pcb.h	/^extern PCB *current, *next;$/;"	externvar
+current	src/process/schedule.c	/^PCB idle, *current = &idle, *next;$/;"	variable
+current_consl	src/drivers/tty/console.c	/^Console *current_consl;$/;"	variable
+current_consl	src/drivers/tty/tty.h	/^extern Console *current_consl;$/;"	externvar
+day	include/drivers/time.h	/^	int year, month, day;$/;"	member	struct:Time	access:public
+del	src/drivers/tty/console.c	/^del(Console *c) {$/;"	function	file:	signature:(Console *c)
+dev_id	include/drivers/hal.h	/^	int dev_id;$/;"	member	struct:Device	access:public
+dev_id	include/process/message.h	/^			int dev_id;$/;"	member	struct:Message::__anon2::__anon3	access:public
+dev_pool	src/drivers/hal.c	/^static Dev dev_pool[NR_DEV];$/;"	variable	file:
+dev_read	src/drivers/hal.c	/^dev_read(const char *dev_name, pid_t reqst_pid, void *buf, off_t offset, size_t len) {$/;"	function	signature:(const char *dev_name, pid_t reqst_pid, void *buf, off_t offset, size_t len)
+dev_rw	src/drivers/hal.c	/^dev_rw(const char *dev_name, int type, pid_t reqst_pid, void *buf, off_t offset, size_t len) {$/;"	function	file:	signature:(const char *dev_name, int type, pid_t reqst_pid, void *buf, off_t offset, size_t len)
+dev_write	src/drivers/hal.c	/^dev_write(const char *dev_name, pid_t reqst_pid, void *buf, off_t offset, size_t len) {$/;"	function	signature:(const char *dev_name, pid_t reqst_pid, void *buf, off_t offset, size_t len)
+devices	src/drivers/hal.c	/^static ListHead free, devices;$/;"	variable	file:
+die	autocheck.sh	/^function die {$/;"	function
+dirty	include/x86/memory.h	/^		uint32_t dirty               : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+dirty	src/drivers/ide/cache.c	/^	bool used, dirty;$/;"	member	struct:SectorCache	file:	access:public
+disk_do_read	src/drivers/ide/disk.c	/^disk_do_read(void *buf, uint32_t sector) {$/;"	function	signature:(void *buf, uint32_t sector)
+disk_do_write	src/drivers/ide/disk.c	/^disk_do_write(void *buf, uint32_t sector) {$/;"	function	signature:(void *buf, uint32_t sector)
+dont_care	include/x86/memory.h	/^	uint8_t dont_care[88];$/;"	member	struct:TSS	access:public
+draw	src/drivers/tty/console.c	/^draw(char ch) {$/;"	function	file:	signature:(char ch)
+draw2	src/drivers/tty/banner.c	/^draw2(char **p, int q) {$/;"	function	file:	signature:(char **p, int q)
+ds	include/x86/memory.h	/^	uint32_t gs, fs, es, ds;							\/\/ data segment registers$/;"	member	struct:TrapFrame	access:public
+dst	include/process/message.h	/^	pid_t src, dst;$/;"	member	struct:Message	access:public
+eax	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+ebp	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+ebx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+ecx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+edi	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+edx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+eflags	include/x86/memory.h	/^	uint32_t eip, cs, eflags;							\/\/ execution state saved by hardware$/;"	member	struct:TrapFrame	access:public
+ehsize	boot/boot.h	/^	unsigned short ehsize;$/;"	member	struct:ELFHeader	access:public
+eip	include/x86/memory.h	/^	uint32_t eip, cs, eflags;							\/\/ execution state saved by hardware$/;"	member	struct:TrapFrame	access:public
+elf	boot/boot.h	/^	unsigned char  elf[12];$/;"	member	struct:ELFHeader	access:public
+empty	src/testcase.c	/^Semaphore empty, full, mutex;$/;"	variable
+emulation	include/x86/cpu.h	/^		uint32_t emulation           : 1;$/;"	member	struct:CR0::__anon7	access:public
+entry	boot/boot.h	/^	unsigned int   entry;$/;"	member	struct:ELFHeader	access:public
+error_code	include/x86/memory.h	/^	uint32_t error_code;								\/\/ error code$/;"	member	struct:TrapFrame	access:public
+es	include/x86/memory.h	/^	uint32_t gs, fs, es, ds;							\/\/ data segment registers$/;"	member	struct:TrapFrame	access:public
+esi	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+esp	include/x86/memory.h	/^	uint32_t esp, ss;									\/\/ only uses when DPL = 3$/;"	member	struct:TrapFrame	access:public
+esp0	include/x86/memory.h	/^	uint32_t esp0;$/;"	member	struct:TSS	access:public
+extension_type	include/x86/cpu.h	/^		uint32_t extension_type      : 1;$/;"	member	struct:CR0::__anon7	access:public
+f	src/drivers/tty/tty.h	/^	int i, f, r;$/;"	member	struct:Console	access:public
+f	src/testcase.c	/^volatile int f = 0, r = 0, g = 1;$/;"	variable
+false	include/common/const.h	5;"	macro
+filesz	boot/boot.h	/^	unsigned int filesz;$/;"	member	struct:ProgramHeader	access:public
+flags	boot/boot.h	/^	unsigned int   flags;$/;"	member	struct:ELFHeader	access:public
+flags	boot/boot.h	/^	unsigned int flags;$/;"	member	struct:ProgramHeader	access:public
+free	include/process/pcb.h	/^		struct list_head ready, sleep, free, sem;$/;"	member	struct:PCB::__anon4	typeref:struct:PCB::__anon4::	access:public
+free	src/drivers/hal.c	/^static ListHead free, devices;$/;"	variable	file:
+freeq	src/process/util.c	/^PCB *readyq, *freeq, *sleepq;$/;"	variable
+fs	include/x86/memory.h	/^	uint32_t gs, fs, es, ds;							\/\/ data segment registers$/;"	member	struct:TrapFrame	access:public
+full	src/testcase.c	/^Semaphore empty, full, mutex;$/;"	variable
+g	src/testcase.c	/^volatile int f = 0, r = 0, g = 1;$/;"	variable
+gdt	boot/start.S	/^gdt:$/;"	label
+gdt	src/memory/kvm.c	/^static SegDesc gdt[NR_SEGMENTS];$/;"	variable	file:
+gdtdesc	boot/start.S	/^gdtdesc:                      # descriptor$/;"	label
+get_cooked	src/drivers/tty/console.c	/^get_cooked(Console *c, pid_t pid, char *buf, int count) {$/;"	function	file:	signature:(Console *c, pid_t pid, char *buf, int count)
+get_current_tty	src/drivers/tty/console.c	/^get_current_tty(void) {$/;"	function	signature:(void)
+get_jiffy	src/drivers/timer/timer.c	/^get_jiffy() {$/;"	function
+get_kcr3	src/memory/kvm.c	/^inline CR3* get_kcr3() {$/;"	function
+get_kpdir	src/memory/kvm.c	/^inline PDE* get_kpdir() {$/;"	function
+get_kptable	src/memory/kvm.c	/^inline PTE* get_kptable() {$/;"	function
+get_time	src/drivers/timer/timer.c	/^get_time(Time *tm) {$/;"	function	signature:(Time *tm)
+getty	src/drivers/tty/getty.c	/^getty(void) {$/;"	function	file:	signature:(void)
+global	include/x86/memory.h	/^		uint32_t global              : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+granularity	include/x86/memory.h	/^	uint32_t granularity         : 1;$/;"	member	struct:SegmentDescriptor	access:public
+gs	include/x86/memory.h	/^	uint32_t gs, fs, es, ds;							\/\/ data segment registers$/;"	member	struct:TrapFrame	access:public
+h	src/drivers/tty/tty.h	/^	int w, h, wh;$/;"	member	struct:Console	access:public
+hal_get	src/drivers/hal.c	/^static Dev *hal_get(const char *name) {$/;"	function	file:	signature:(const char *name)
+hal_get_id	src/drivers/hal.c	/^void hal_get_id(const char *name, pid_t *pid, int *dev_id) {$/;"	function	signature:(const char *name, pid_t *pid, int *dev_id)
+hal_list	src/drivers/hal.c	/^void hal_list(void) {$/;"	function	signature:(void)
+hal_register	src/drivers/hal.c	/^void hal_register(const char *name, pid_t pid, int dev_id) {$/;"	function	signature:(const char *name, pid_t pid, int dev_id)
+handle_count	src/irq/irq_handle.c	/^static int handle_count = 0;$/;"	variable	file:
+handle_pool	src/irq/irq_handle.c	/^static struct IRQ_t handle_pool[NR_IRQ_HANDLE];$/;"	variable	typeref:struct:IRQ_t	file:
+handles	src/irq/irq_handle.c	/^static struct IRQ_t *handles[NR_HARD_INTR];$/;"	variable	typeref:struct:IRQ_t	file:
+hour	include/drivers/time.h	/^	int hour, minute, second;$/;"	member	struct:Time	access:public
+i	include/process/message.h	/^		int i[5];$/;"	member	union:Message::__anon2	access:public
+i	src/drivers/tty/tty.h	/^	int i, f, r;$/;"	member	struct:Console	access:public
+ide_driver_thread	src/drivers/ide/ide.c	/^ide_driver_thread(void) {$/;"	function	file:	signature:(void)
+ide_intr	src/drivers/ide/ide.c	/^ide_intr(void) {$/;"	function	file:	signature:(void)
+ide_prepare	src/drivers/ide/disk.c	/^ide_prepare(uint32_t sector) {$/;"	function	file:	signature:(uint32_t sector)
+idle	src/process/schedule.c	/^PCB idle, *current = &idle, *next;$/;"	variable
+idle	src/process/util.c	/^extern PCB idle;$/;"	externvar
+idt	src/irq/idt.c	/^static GateDesc idt[NR_IRQ];$/;"	variable	file:
+in_byte	boot/boot.h	/^in_byte(short port) {$/;"	function	signature:(short port)
+in_byte	include/x86/io.h	/^in_byte(uint16_t port) {$/;"	function	signature:(uint16_t port)
+in_long	boot/boot.h	/^in_long(short port) {$/;"	function	signature:(short port)
+in_long	include/x86/io.h	/^in_long(uint16_t port) {$/;"	function	signature:(uint16_t port)
+init_consl	src/drivers/tty/console.c	/^init_consl(int tty_index) {$/;"	function	file:	signature:(int tty_index)
+init_console	src/drivers/tty/console.c	/^void init_console(void) {$/;"	function	signature:(void)
+init_driver	src/drivers/drivers.c	/^void init_driver() {$/;"	function
+init_getty	src/drivers/tty/getty.c	/^init_getty(void) {$/;"	function	signature:(void)
+init_hal	src/drivers/hal.c	/^void init_hal(void) {$/;"	function	signature:(void)
+init_i8253	src/drivers/timer/timer.c	/^init_i8253(void) {$/;"	function	file:	signature:(void)
+init_ide	src/drivers/ide/ide.c	/^init_ide(void) {$/;"	function	signature:(void)
+init_idt	src/irq/idt.c	/^void init_idt() {$/;"	function
+init_intr	src/irq/i8259.c	/^void init_intr(void) {$/;"	function	signature:(void)
+init_page	src/memory/kvm.c	/^init_page(void) {$/;"	function	signature:(void)
+init_proc	src/process/util.c	/^init_proc() {$/;"	function
+init_rt	src/drivers/timer/timer.c	/^init_rt(void) {$/;"	function	file:	signature:(void)
+init_segment	src/memory/kvm.c	/^init_segment(void) {$/;"	function	signature:(void)
+init_sem	src/process/semaphore.c	/^init_sem(Semaphore *sem, int value) {$/;"	function	signature:(Semaphore *sem, int value)
+init_serial	src/lib/serial.c	/^init_serial(void) {$/;"	function	signature:(void)
+init_timer	src/drivers/timer/timer.c	/^void init_timer(void) {$/;"	function	signature:(void)
+init_tty	src/drivers/tty/tty.c	/^void init_tty(void) {$/;"	function	signature:(void)
+int16_t	include/common/types.h	/^typedef          short int16_t;$/;"	typedef
+int32_t	include/common/types.h	/^typedef          int   int32_t;$/;"	typedef
+int8_t	include/common/types.h	/^typedef          char  int8_t;$/;"	typedef
+irq	include/x86/memory.h	/^	int32_t irq;										\/\/ #irq$/;"	member	struct:TrapFrame	access:public
+irq_handle	src/irq/irq_handle.c	/^void irq_handle(TrapFrame *tf) {$/;"	function	signature:(TrapFrame *tf)
+issue_read	src/drivers/ide/disk.c	/^issue_read() {$/;"	function	file:
+issue_write	src/drivers/ide/disk.c	/^issue_write() {$/;"	function	file:
+itoa	src/lib/string.c	/^char *itoa(int a) {$/;"	function	signature:(int a)
+jiffy	src/drivers/timer/timer.c	/^static long jiffy = 0;$/;"	variable	file:
+kcr3	src/memory/kvm.c	/^static CR3 kcr3;											\/\/ kernel CR3$/;"	variable	file:
+keychar	src/drivers/tty/keyboard.c	/^static int keychar[2][128] = {$/;"	variable	file:
+kstack	include/process/pcb.h	/^	uint8_t kstack[KSTACK_SIZE];$/;"	member	union:PCB	access:public
+kthread_A	src/testcase.c	/^kthread_A (void) { $/;"	function	signature:(void)
+kthread_B	src/testcase.c	/^kthread_B (void) { $/;"	function	signature:(void)
+kthread_a	src/testcase.c	/^kthread_a(void) { $/;"	function	signature:(void)
+kthread_b	src/testcase.c	/^kthread_b(void) { $/;"	function	signature:(void)
+kthread_c	src/testcase.c	/^kthread_c(void) { $/;"	function	signature:(void)
+kthread_d	src/testcase.c	/^kthread_d(void) { $/;"	function	signature:(void)
+kthread_e	src/testcase.c	/^kthread_e(void) {$/;"	function	signature:(void)
+last	src/testcase.c	/^int last = 0;$/;"	variable
+lbuf	src/drivers/tty/tty.h	/^	char lbuf[LBUF_SZ + 1];$/;"	member	struct:Console	access:public
+len	include/process/message.h	/^			size_t len;$/;"	member	struct:Message::__anon2::__anon3	access:public
+lf	src/drivers/tty/console.c	/^lf(Console *c) {$/;"	function	file:	signature:(Console *c)
+limit_15_0	include/x86/memory.h	/^	uint32_t limit_15_0          : 16;$/;"	member	struct:SegmentDescriptor	access:public
+limit_19_16	include/x86/memory.h	/^	uint32_t limit_19_16         : 4;$/;"	member	struct:SegmentDescriptor	access:public
+list	include/drivers/hal.h	/^	ListHead list;$/;"	member	struct:Device	access:public
+list	include/process/message.h	/^	struct list_head list;$/;"	member	struct:Message	typeref:struct:Message::list_head	access:public
+list_add	include/lib/list.h	/^static inline void list_add(struct list_head *new, struct list_head *head)$/;"	function	signature:(struct list_head *new, struct list_head *head)
+list_add_tail	include/lib/list.h	/^static inline void list_add_tail(struct list_head *new, struct list_head *head)$/;"	function	signature:(struct list_head *new, struct list_head *head)
+list_del	include/lib/list.h	/^static inline void list_del(struct list_head *entry)$/;"	function	signature:(struct list_head *entry)
+list_del_init	include/lib/list.h	/^static inline void list_del_init(struct list_head *entry)$/;"	function	signature:(struct list_head *entry)
+list_empty	include/lib/list.h	/^static inline int list_empty(struct list_head *head)$/;"	function	signature:(struct list_head *head)
+list_entry	include/lib/list.h	189;"	macro
+list_for_each	include/lib/list.h	197;"	macro
+list_for_each_entry	include/lib/list.h	225;"	macro
+list_for_each_entry_safe	include/lib/list.h	237;"	macro
+list_for_each_prev	include/lib/list.h	205;"	macro
+list_for_each_safe	include/lib/list.h	215;"	macro
+list_head	include/lib/list.h	/^struct list_head {$/;"	struct
+list_head::next	include/lib/list.h	/^	struct list_head *next, *prev;$/;"	member	struct:list_head	typeref:struct:list_head::list_head	access:public
+list_head::prev	include/lib/list.h	/^	struct list_head *next, *prev;$/;"	member	struct:list_head	typeref:struct:list_head::	access:public
+list_move	include/lib/list.h	/^static inline void list_move(struct list_head *list, struct list_head *head)$/;"	function	signature:(struct list_head *list, struct list_head *head)
+list_move_tail	include/lib/list.h	/^static inline void list_move_tail(struct list_head *list,$/;"	function	signature:(struct list_head *list, struct list_head *head)
+list_splice	include/lib/list.h	/^static inline void list_splice(struct list_head *list, struct list_head *head)$/;"	function	signature:(struct list_head *list, struct list_head *head)
+list_splice_init	include/lib/list.h	/^static inline void list_splice_init(struct list_head *list,$/;"	function	signature:(struct list_head *list, struct list_head *head)
+lock	src/process/util.c	/^lock() {$/;"	function
+lock_counter	include/process/pcb.h	/^		int lock_counter, unlock_status;$/;"	member	struct:PCB::__anon4	access:public
+machine	boot/boot.h	/^	unsigned short machine;$/;"	member	struct:ELFHeader	access:public
+magic	boot/boot.h	/^	unsigned int   magic;$/;"	member	struct:ELFHeader	access:public
+make_invalid_pde	src/memory/util.c	/^make_invalid_pde(PDE *p) {$/;"	function	signature:(PDE *p)
+make_invalid_pte	src/memory/util.c	/^make_invalid_pte(PTE *p) {$/;"	function	signature:(PTE *p)
+make_pde	src/memory/util.c	/^make_pde(PDE *p, void *addr) {$/;"	function	signature:(PDE *p, void *addr)
+make_pte	src/memory/util.c	/^make_pte(PTE *p, void *addr) {$/;"	function	signature:(PTE *p, void *addr)
+md	src/drivers/timer/timer.c	/^md(int year, int month) {$/;"	function	file:	signature:(int year, int month)
+memcpy	src/lib/string.c	/^void memcpy(void *dest, const void *src, size_t size) {$/;"	function	signature:(void *dest, const void *src, size_t size)
+memset	src/lib/string.c	/^void memset(void *dest, uint8_t data, size_t size) {$/;"	function	signature:(void *dest, uint8_t data, size_t size)
+memsz	boot/boot.h	/^	unsigned int memsz;$/;"	member	struct:ProgramHeader	access:public
+messages	include/process/pcb.h	/^		Message *messages;$/;"	member	struct:PCB::__anon4	access:public
+minute	include/drivers/time.h	/^	int hour, minute, second;$/;"	member	struct:Time	access:public
+monitor_coprocessor	include/x86/cpu.h	/^		uint32_t monitor_coprocessor : 1;$/;"	member	struct:CR0::__anon7	access:public
+month	include/drivers/time.h	/^	int year, month, day;$/;"	member	struct:Time	access:public
+movl	src/drivers/tty/console.c	/^movl(Console *c) {$/;"	function	file:	signature:(Console *c)
+movr	src/drivers/tty/console.c	/^movr(Console *c) {$/;"	function	file:	signature:(Console *c)
+msgbuf	include/process/pcb.h	/^		Message msgbuf[MSGBUF_SIZE];$/;"	member	struct:PCB::__anon4	access:public
+mutex	include/process/pcb.h	/^		Semaphore mutex, amount;$/;"	member	struct:PCB::__anon4	access:public
+mutex	src/testcase.c	/^Semaphore empty, full, mutex;$/;"	variable
+name	include/drivers/hal.h	/^	const char *name;$/;"	member	struct:Device	access:public
+name	src/drivers/tty/tty.h	/^	const char *name;$/;"	member	struct:Console	access:public
+next	include/lib/list.h	/^	struct list_head *next, *prev;$/;"	member	struct:list_head	typeref:struct:list_head::list_head	access:public
+next	include/process/pcb.h	/^extern PCB *current, *next;$/;"	externvar
+next	src/drivers/tty/console.c	/^next(Console *c) {$/;"	function	file:	signature:(Console *c)
+next	src/irq/irq_handle.c	/^	struct IRQ_t *next;$/;"	member	struct:IRQ_t	typeref:struct:IRQ_t::IRQ_t	file:	access:public
+next	src/process/schedule.c	/^PCB idle, *current = &idle, *next;$/;"	variable
+no_write_through	include/x86/cpu.h	/^		uint32_t no_write_through    : 1;$/;"	member	struct:CR0::__anon7	access:public
+numeric_error	include/x86/cpu.h	/^		uint32_t numeric_error       : 1;$/;"	member	struct:CR0::__anon7	access:public
+off	boot/boot.h	/^	unsigned int off;$/;"	member	struct:ProgramHeader	access:public
+off_t	include/common/types.h	/^typedef          int   off_t;$/;"	typedef
+offset	include/process/message.h	/^			off_t offset;$/;"	member	struct:Message::__anon2::__anon3	access:public
+offset_15_0	include/x86/memory.h	/^	uint32_t offset_15_0      : 16;$/;"	member	struct:GateDescriptor	access:public
+offset_31_16	include/x86/memory.h	/^	uint32_t offset_31_16     : 16;$/;"	member	struct:GateDescriptor	access:public
+operation_size	include/x86/memory.h	/^	uint32_t operation_size      : 1;$/;"	member	struct:SegmentDescriptor	access:public
+os_init	src/main.c	/^os_init(void) {$/;"	function	signature:(void)
+os_init_cont	src/main.c	/^os_init_cont(void) {$/;"	function	signature:(void)
+out_byte	boot/boot.h	/^out_byte(short port, char data) {$/;"	function	signature:(short port, char data)
+out_byte	include/x86/io.h	/^out_byte(uint16_t port, uint8_t data) {$/;"	function	signature:(uint16_t port, uint8_t data)
+out_long	include/x86/io.h	/^out_long(uint16_t port, uint32_t data) {$/;"	function	signature:(uint16_t port, uint32_t data)
+pa_to_va	include/memory.h	20;"	macro
+pad0	include/x86/cpu.h	/^		uint32_t pad0                : 10;$/;"	member	struct:CR0::__anon7	access:public
+pad0	include/x86/cpu.h	/^		uint32_t pad0                : 3;$/;"	member	struct:CR3::__anon8	access:public
+pad0	include/x86/memory.h	/^		uint32_t pad0                : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+pad0	include/x86/memory.h	/^		uint32_t pad0                : 6;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+pad0	include/x86/memory.h	/^	uint32_t pad0                : 1;$/;"	member	struct:SegmentDescriptor	access:public
+pad0	include/x86/memory.h	/^	uint32_t pad0             : 8;$/;"	member	struct:GateDescriptor	access:public
+pad1	include/x86/cpu.h	/^		uint32_t pad1                : 1; $/;"	member	struct:CR0::__anon7	access:public
+pad1	include/x86/cpu.h	/^		uint32_t pad1                : 7;$/;"	member	struct:CR3::__anon8	access:public
+pad1	include/x86/memory.h	/^		uint32_t pad1                : 3;$/;"	member	struct:PageTableEntry::__anon6	access:public
+pad2	include/x86/cpu.h	/^		uint32_t pad2                : 10;$/;"	member	struct:CR0::__anon7	access:public
+paddr	boot/boot.h	/^	unsigned int paddr;$/;"	member	struct:ProgramHeader	access:public
+page_cache_disable	include/x86/cpu.h	/^		uint32_t page_cache_disable  : 1;$/;"	member	struct:CR3::__anon8	access:public
+page_cache_disable	include/x86/memory.h	/^		uint32_t page_cache_disable  : 1;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+page_cache_disable	include/x86/memory.h	/^		uint32_t page_cache_disable  : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+page_directory_base	include/x86/cpu.h	/^		uint32_t page_directory_base : 20;$/;"	member	struct:CR3::__anon8	access:public
+page_frame	include/x86/memory.h	/^		uint32_t page_frame          : 20;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+page_frame	include/x86/memory.h	/^		uint32_t page_frame          : 20;$/;"	member	struct:PageTableEntry::__anon6	access:public
+page_write_through	include/x86/cpu.h	/^		uint32_t page_write_through  : 1;$/;"	member	struct:CR3::__anon8	access:public
+page_write_through	include/x86/memory.h	/^		uint32_t page_write_through  : 1;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+page_write_through	include/x86/memory.h	/^		uint32_t page_write_through  : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+paging	include/x86/cpu.h	/^		uint32_t paging              : 1;$/;"	member	struct:CR0::__anon7	access:public
+panic	include/common/assert.h	8;"	macro
+phentsize	boot/boot.h	/^	unsigned short phentsize;$/;"	member	struct:ELFHeader	access:public
+phnum	boot/boot.h	/^	unsigned short phnum;$/;"	member	struct:ELFHeader	access:public
+phoff	boot/boot.h	/^	unsigned int   phoff;$/;"	member	struct:ELFHeader	access:public
+pid	include/drivers/hal.h	/^	pid_t pid;$/;"	member	struct:Device	access:public
+pid	include/process/pcb.h	/^		pid_t pid;$/;"	member	struct:PCB::__anon4	access:public
+pidA	src/testcase.c	/^int pidA, pidB, pidC, pidD, pidE;$/;"	variable
+pidB	src/testcase.c	/^int pidA, pidB, pidC, pidD, pidE;$/;"	variable
+pidC	src/testcase.c	/^int pidA, pidB, pidC, pidD, pidE;$/;"	variable
+pidD	src/testcase.c	/^int pidA, pidB, pidC, pidD, pidE;$/;"	variable
+pidE	src/testcase.c	/^int pidA, pidB, pidC, pidD, pidE;$/;"	variable
+pid_t	include/common/types.h	/^typedef          int   pid_t;$/;"	typedef
+pos	src/drivers/tty/tty.h	/^	int size, pos;$/;"	member	struct:Console	access:public
+present	include/x86/memory.h	/^		uint32_t present             : 1;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+present	include/x86/memory.h	/^		uint32_t present             : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+present	include/x86/memory.h	/^	uint32_t present             : 1;$/;"	member	struct:SegmentDescriptor	access:public
+present	include/x86/memory.h	/^	uint32_t present          : 1;$/;"	member	struct:GateDescriptor	access:public
+prev	include/lib/list.h	/^	struct list_head *next, *prev;$/;"	member	struct:list_head	typeref:struct:list_head::	access:public
+prev	include/x86/memory.h	/^	uint32_t prev;			\/\/ don't care$/;"	member	struct:TSS	access:public
+printk	src/lib/printk.c	/^printk(const char *ctl, ...) {$/;"	function	signature:(const char *ctl, ...)
+privilege_level	include/x86/memory.h	/^	uint32_t privilege_level     : 2;$/;"	member	struct:SegmentDescriptor	access:public
+privilege_level	include/x86/memory.h	/^	uint32_t privilege_level  : 2;$/;"	member	struct:GateDescriptor	access:public
+producer	src/testcase.c	/^producer(void) {$/;"	function	signature:(void)
+protect_enable	include/x86/cpu.h	/^		uint32_t protect_enable      : 1;$/;"	member	struct:CR0::__anon7	access:public
+putc	src/drivers/tty/console.c	/^putc(Console *c, char ch) {$/;"	function	file:	signature:(Console *c, char ch)
+r	src/drivers/tty/tty.h	/^	int i, f, r;$/;"	member	struct:Console	access:public
+r	src/testcase.c	/^volatile int f = 0, r = 0, g = 1;$/;"	variable
+read_byte	src/drivers/ide/cache.c	/^read_byte(uint32_t offset) {$/;"	function	signature:(uint32_t offset)
+read_cr0	include/x86/cpu.h	/^read_cr0() {$/;"	function	signature:()
+read_eflags	include/x86/cpu.h	/^read_eflags(void) {$/;"	function	signature:(void)
+read_request	src/drivers/tty/console.c	/^read_request(Msg *m) {$/;"	function	signature:(Msg *m)
+read_write	include/x86/memory.h	/^		uint32_t read_write          : 1; $/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+read_write	include/x86/memory.h	/^		uint32_t read_write          : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+readkey	src/drivers/tty/keyboard.c	/^readkey(void) {$/;"	function	signature:(void)
+readsect	boot/main.c	/^readsect(void *dst, int offset) {$/;"	function	signature:(void *dst, int offset)
+readseg	boot/main.c	/^readseg(unsigned char *pa, int count, int offset) {$/;"	function	signature:(unsigned char *pa, int count, int offset)
+ready	include/process/pcb.h	/^		struct list_head ready, sleep, free, sem;$/;"	member	struct:PCB::__anon4	typeref:struct:PCB::__anon4::list_head	access:public
+readyq	src/process/util.c	/^PCB *readyq, *freeq, *sleepq;$/;"	variable
+receive	src/process/message.c	/^receive(pid_t src, Message *msg) {$/;"	function	signature:(pid_t src, Message *msg)
+removec	src/drivers/tty/console.c	/^removec(Console *c) {$/;"	function	file:	signature:(Console *c)
+req_pid	include/process/message.h	/^			pid_t req_pid;$/;"	member	struct:Message::__anon2::__anon3	access:public
+ret	include/process/message.h	/^		int ret;$/;"	member	union:Message::__anon1	access:public
+routine	src/irq/irq_handle.c	/^	void (*routine)(void);$/;"	member	struct:IRQ_t	file:	access:public
+rstk	src/drivers/tty/tty.h	/^	Msg rstk[RSTK_SZ];$/;"	member	struct:Console	access:public
+rt	src/drivers/timer/timer.c	/^static Time rt;$/;"	variable	file:
+rtop	src/drivers/tty/tty.h	/^	int rtop;$/;"	member	struct:Console	access:public
+schedule	src/process/schedule.c	/^schedule(void) {$/;"	function	signature:(void)
+scr	src/drivers/tty/tty.h	/^	uint16_t *scr;$/;"	member	struct:Console	access:public
+scrup	src/drivers/tty/console.c	/^scrup(Console *c) {$/;"	function	file:	signature:(Console *c)
+second	include/drivers/time.h	/^	int hour, minute, second;$/;"	member	struct:Time	access:public
+sector	src/drivers/ide/cache.c	/^	uint32_t sector;$/;"	member	struct:SectorCache	file:	access:public
+segment	include/x86/memory.h	/^	uint32_t segment          : 16;$/;"	member	struct:GateDescriptor	access:public
+segment_type	include/x86/memory.h	/^	uint32_t segment_type        : 1;$/;"	member	struct:SegmentDescriptor	access:public
+sem	include/process/pcb.h	/^		struct list_head ready, sleep, free, sem;$/;"	member	struct:PCB::__anon4	typeref:struct:PCB::__anon4::	access:public
+send	src/process/message.c	/^send(pid_t dst, Message *msg) {$/;"	function	signature:(pid_t dst, Message *msg)
+send_keymsg	src/drivers/tty/keyboard.c	/^send_keymsg(void) {$/;"	function	signature:(void)
+send_updatemsg	src/drivers/tty/console.c	/^send_updatemsg(void) {$/;"	function	file:	signature:(void)
+serial_idle	src/lib/serial.c	/^serial_idle(void) {$/;"	function	file:	signature:(void)
+serial_printc	src/lib/serial.c	/^serial_printc(char ch) {$/;"	function	signature:(char ch)
+set_intr	src/irq/idt.c	/^static void set_intr(GateDesc *ptr, uint32_t selector, uint32_t offset, uint32_t dpl) {$/;"	function	file:	signature:(GateDesc *ptr, uint32_t selector, uint32_t offset, uint32_t dpl)
+set_segment	src/memory/kvm.c	/^set_segment(SegDesc *ptr, uint32_t pl, uint32_t type) {$/;"	function	file:	signature:(SegDesc *ptr, uint32_t pl, uint32_t type)
+set_trap	src/irq/idt.c	/^static void set_trap(GateDesc *ptr, uint32_t selector, uint32_t offset, uint32_t dpl) {$/;"	function	file:	signature:(GateDesc *ptr, uint32_t selector, uint32_t offset, uint32_t dpl)
+set_tss	src/memory/kvm.c	/^set_tss(SegDesc *ptr) {$/;"	function	file:	signature:(SegDesc *ptr)
+set_tss_esp0	src/memory/kvm.c	/^inline void set_tss_esp0(uint32_t esp) {$/;"	function	signature:(uint32_t esp)
+shentsize	boot/boot.h	/^	unsigned short shentsize;$/;"	member	struct:ELFHeader	access:public
+shft	src/drivers/tty/keyboard.c	/^static int caps, ctrl, alt, shft;$/;"	variable	file:
+shnum	boot/boot.h	/^	unsigned short shnum;$/;"	member	struct:ELFHeader	access:public
+shoff	boot/boot.h	/^	unsigned int   shoff;$/;"	member	struct:ELFHeader	access:public
+shstrndx	boot/boot.h	/^	unsigned short shstrndx;$/;"	member	struct:ELFHeader	access:public
+size	src/drivers/tty/tty.h	/^	int size, pos;$/;"	member	struct:Console	access:public
+size_t	include/common/types.h	/^typedef          int   size_t;$/;"	typedef
+sleep	include/process/pcb.h	/^		struct list_head ready, sleep, free, sem;$/;"	member	struct:PCB::__anon4	typeref:struct:PCB::__anon4::	access:public
+sleep	src/process/util.c	/^sleep() {$/;"	function
+sleepq	src/process/util.c	/^PCB *readyq, *freeq, *sleepq;$/;"	variable
+soft_use	include/x86/memory.h	/^	uint32_t soft_use            : 1;$/;"	member	struct:SegmentDescriptor	access:public
+src	include/process/message.h	/^	pid_t src, dst;$/;"	member	struct:Message	access:public
+ss	include/x86/memory.h	/^	uint32_t esp, ss;									\/\/ only uses when DPL = 3$/;"	member	struct:TrapFrame	access:public
+ss0	include/x86/memory.h	/^	uint32_t ss0;$/;"	member	struct:TSS	access:public
+stackoverflow	src/testcase.c	/^stackoverflow(int x) {$/;"	function	signature:(int x)
+start	boot/start.S	/^start:$/;"	label
+start32	boot/start.S	/^start32:$/;"	label
+sti	include/x86/cpu.h	/^sti(void) {$/;"	function	signature:(void)
+strcpy	src/lib/string.c	/^void strcpy(char *d, const char *s) {$/;"	function	signature:(char *d, const char *s)
+strcpy_from_kernel	src/lib/kcpy.c	/^void strcpy_from_kernel(PCB* pcb, char* dest, char* src){$/;"	function	signature:(PCB* pcb, char* dest, char* src)
+strcpy_to_kernel	src/lib/kcpy.c	/^void strcpy_to_kernel(PCB* pcb, char* dest, char* src){$/;"	function	signature:(PCB* pcb, char* dest, char* src)
+strlen	src/lib/string.c	/^size_t strlen(const char *str) {$/;"	function	signature:(const char *str)
+system	include/x86/memory.h	/^	uint32_t system           : 1;$/;"	member	struct:GateDescriptor	access:public
+task_switched	include/x86/cpu.h	/^		uint32_t task_switched       : 1;$/;"	member	struct:CR0::__anon7	access:public
+test_basic_kthread	src/testcase.c	/^test_basic_kthread(void) {$/;"	function	signature:(void)
+test_message	src/testcase.c	/^test_message(void) {$/;"	function	signature:(void)
+test_printk	src/testcase.c	/^test_printk(void) {$/;"	function	signature:(void)
+test_semaphore	src/testcase.c	/^test_semaphore(void) {$/;"	function	signature:(void)
+test_setup	src/testcase.c	/^test_setup(void) {$/;"	function	signature:(void)
+test_sleep_wakeup	src/testcase.c	/^test_sleep_wakeup(void) {$/;"	function	signature:(void)
+test_stackoverflow	src/testcase.c	/^test_stackoverflow(void) {$/;"	function	signature:(void)
+tf	include/process/pcb.h	/^		void *tf;$/;"	member	struct:PCB::__anon4	access:public
+time_intr	src/drivers/ide/ide.c	/^time_intr(void) {$/;"	function	file:	signature:(void)
+timer_driver_thread	src/drivers/timer/timer.c	/^timer_driver_thread(void) {$/;"	function	file:	signature:(void)
+true	include/common/const.h	4;"	macro
+tsc	src/drivers/tty/banner.c	/^static int tsc = 0;$/;"	variable	file:
+tss	src/memory/kvm.c	/^static TSS tss; $/;"	variable	file:
+tty_idx	src/drivers/tty/getty.c	/^static int tty_idx = 1;$/;"	variable	file:
+ttyd	src/drivers/tty/tty.c	/^ttyd(void) {$/;"	function	file:	signature:(void)
+ttynames	src/drivers/tty/console.c	/^static const char *ttynames[NR_TTY] = {"tty1", "tty2", "tty3", "tty4"};$/;"	variable	file:
+ttys	src/drivers/tty/console.c	/^Console ttys[NR_TTY];$/;"	variable
+ttys	src/drivers/tty/tty.h	/^extern Console ttys[];$/;"	externvar
+type	boot/boot.h	/^	unsigned int type;$/;"	member	struct:ProgramHeader	access:public
+type	boot/boot.h	/^	unsigned short type;$/;"	member	struct:ELFHeader	access:public
+type	include/process/message.h	/^		int type;$/;"	member	union:Message::__anon1	access:public
+type	include/x86/memory.h	/^	uint32_t type                : 4;$/;"	member	struct:SegmentDescriptor	access:public
+type	include/x86/memory.h	/^	uint32_t type             : 4;$/;"	member	struct:GateDescriptor	access:public
+uint16_t	include/common/types.h	/^typedef unsigned short uint16_t;$/;"	typedef
+uint32_t	include/common/types.h	/^typedef unsigned int   uint32_t;$/;"	typedef
+uint8_t	include/common/types.h	/^typedef unsigned char  uint8_t;$/;"	typedef
+unlock	src/process/util.c	/^unlock() {$/;"	function
+unlock_status	include/process/pcb.h	/^		int lock_counter, unlock_status;$/;"	member	struct:PCB::__anon4	access:public
+update_banner	src/drivers/tty/banner.c	/^void update_banner(void) {$/;"	function	signature:(void)
+update_jiffy	src/drivers/timer/timer.c	/^update_jiffy(void) {$/;"	function	file:	signature:(void)
+used	src/drivers/ide/cache.c	/^	bool used, dirty;$/;"	member	struct:SectorCache	file:	access:public
+user_supervisor	include/x86/memory.h	/^		uint32_t user_supervisor     : 1;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
+user_supervisor	include/x86/memory.h	/^		uint32_t user_supervisor     : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
+va_to_pa	include/memory.h	17;"	macro
+vaddr	boot/boot.h	/^	unsigned int vaddr;$/;"	member	struct:ProgramHeader	access:public
+val	include/x86/cpu.h	/^	uint32_t val;$/;"	member	union:CR0	access:public
+val	include/x86/cpu.h	/^	uint32_t val;$/;"	member	union:CR3	access:public
+val	include/x86/memory.h	/^	uint32_t val;$/;"	member	union:PageDirectoryEntry	access:public
+val	include/x86/memory.h	/^	uint32_t val;$/;"	member	union:PageTableEntry	access:public
+vbuf	src/drivers/tty/console.c	/^static uint16_t vbuf[NR_TTY][SCR_W * SCR_H * 2];$/;"	variable	file:
+vbuf	src/drivers/tty/tty.h	/^	uint16_t *vbuf;$/;"	member	struct:Console	access:public
+version	boot/boot.h	/^	unsigned int   version;$/;"	member	struct:ELFHeader	access:public
+vfprintf	src/lib/printk.c	/^int vfprintf(void (*printer)(char), const char *ctl, void **args) {$/;"	function	signature:(void (*printer)(char), const char *ctl, void **args)
+vmem	src/drivers/tty/console.c	/^static uint16_t *vmem = (void*)pa_to_va(0xb8000);$/;"	variable	file:
+w	src/drivers/tty/tty.h	/^	int w, h, wh;$/;"	member	struct:Console	access:public
+wait_intr	include/x86/cpu.h	/^wait_intr() {$/;"	function	signature:()
+waitdisk	boot/main.c	/^waitdisk(void) {$/;"	function	signature:(void)
+wakeup	src/process/util.c	/^void wakeup(PCB *p) {$/;"	function	signature:(PCB *p)
+wh	src/drivers/tty/tty.h	/^	int w, h, wh;$/;"	member	struct:Console	access:public
+write_byte	src/drivers/ide/cache.c	/^write_byte(uint32_t offset, uint8_t data) {$/;"	function	signature:(uint32_t offset, uint8_t data)
+write_cr0	include/x86/cpu.h	/^write_cr0(CR0 *cr0) {$/;"	function	signature:(CR0 *cr0)
+write_cr3	include/x86/cpu.h	/^write_cr3(CR3 *cr3) {$/;"	function	signature:(CR3 *cr3)
+write_gdtr	include/x86/cpu.h	/^write_gdtr(void *addr, uint32_t size) {$/;"	function	signature:(void *addr, uint32_t size)
+write_idtr	include/x86/cpu.h	/^write_idtr(void *addr, uint32_t size) {$/;"	function	signature:(void *addr, uint32_t size)
+write_protect	include/x86/cpu.h	/^		uint32_t write_protect       : 1; $/;"	member	struct:CR0::__anon7	access:public
+write_tr	include/x86/cpu.h	/^write_tr(uint16_t selector) {$/;"	function	signature:(uint16_t selector)
+xxx	include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;	\/\/ GPRs$/;"	member	struct:TrapFrame	access:public
+year	include/drivers/time.h	/^	int year, month, day;$/;"	member	struct:Time	access:public

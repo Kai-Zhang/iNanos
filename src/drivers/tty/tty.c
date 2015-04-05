@@ -1,5 +1,5 @@
 #include "kernel.h"
-#include "hal.h"
+#include "drivers/hal.h"
 #include "tty.h"
 
 pid_t TTY;
@@ -9,6 +9,7 @@ void send_keymsg(void);
 void init_console(void);
 void init_getty(void);
 static void ttyd(void);
+extern void copy_to_kernel(PCB *, void *, void *, int);
 
 void init_tty(void) {
 	add_irq_handle(1, send_keymsg);
@@ -21,7 +22,7 @@ void init_tty(void) {
 
 static void
 ttyd(void) {
-	Msg m;
+	Message m;
 
 	while (1) {
 		receive(ANY, &m);
