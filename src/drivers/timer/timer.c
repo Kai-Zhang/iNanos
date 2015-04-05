@@ -77,8 +77,18 @@ init_i8253(void) {
 static void
 init_rt(void) {
 	memset(&rt, 0, sizeof(Time));
-	/* Optional: Insert code here to initialize current time correctly */
-
+	out_byte(PORT_RTC, 0x00);
+	rt.second = in_byte(PORT_RTC + 1);
+	out_byte(PORT_RTC, 0x02);
+	rt.minute = in_byte(PORT_RTC + 1);
+	out_byte(PORT_RTC, 0x04);
+	rt.hour = in_byte(PORT_RTC + 1);
+	out_byte(PORT_RTC, 0x07);
+	rt.day = in_byte(PORT_RTC + 1);
+	out_byte(PORT_RTC, 0x08);
+	rt.month = in_byte(PORT_RTC + 1);
+	out_byte(PORT_RTC, 0x09);
+	rt.year = in_byte(PORT_RTC + 1);
 }
 
 void 

@@ -1,22 +1,28 @@
 #include "kernel.h"
+#include "drivers/hal.h"
 #include "tty.h"
 
 static int tty_idx = 1;
 
 static void
 getty(void) {
-	char name[] = "tty0";//, buf[256];
+	char name[] = "tty0", buf[256];
 	lock();
 	name[3] += (tty_idx ++);
 	unlock();
 
+	int len = 0;
 	while(1) {
-		/* Insert code here to do these:
-		 * 1. read key input from ttyd to buf (use dev_read())
-		 * 2. convert all small letters in buf into capitcal letters
-		 * 3. write the result on screen (use dev_write())
-		 */
-
+		if ((len = dev_read(name, current->pid, buf, 0, 256)) < 0) {
+			continue;
+		}
+		int i = 0;
+		for (; i < len; i++) {
+			if (buf[i] >= 'a' && buf[i] <= 'z') {
+				buf[i] = buf[i] - 'a' + 'A';
+			}
+		}
+		dev_write(name, current->pid, buf, 0, len);
 	}
 }
 
