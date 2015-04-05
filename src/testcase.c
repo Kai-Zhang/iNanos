@@ -323,5 +323,5 @@ test_setup(void) {
 	// test_stackoverflow();
 	// test_sleep_wakeup();
 	// test_semaphore();
-	test_message();
+	// test_message();
 }
