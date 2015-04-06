@@ -27,7 +27,6 @@ typedef union PCB {
 } PCB;
 
 extern PCB *current;
-extern PCB PCB_pool[KERNEL_PCB_MAX];
 
 extern PCB *fetch_pcb(pid_t pid);
 

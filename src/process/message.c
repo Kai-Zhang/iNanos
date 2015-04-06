@@ -3,29 +3,30 @@
 
 void
 send(pid_t dst, Message *msg) {
+	PCB *dst_pcb = fetch_pcb(dst);
 	msg->dst = dst;
-	P(&(PCB_pool[dst].mutex));
+	P(&(dst_pcb->mutex));
 	Message *new_msg = NULL;
 	int i = 0;
 	for (i = 0; i < MSGBUF_SIZE; i++) {
-		if (PCB_pool[dst].messages != &PCB_pool[dst].msgbuf[i] &&
-				list_empty(&(PCB_pool[dst].msgbuf[i].list))) {
-			new_msg = &PCB_pool[dst].msgbuf[i];
+		if (dst_pcb->messages != &dst_pcb->msgbuf[i] &&
+				list_empty(&(dst_pcb->msgbuf[i].list))) {
+			new_msg = &dst_pcb->msgbuf[i];
 			break;
 		}
 	}
 	assert(new_msg);
 	memcpy(new_msg, msg, sizeof(Message));
 	INIT_LIST_HEAD(&(new_msg->list));
-	if (!PCB_pool[dst].messages) {
-		PCB_pool[dst].messages = new_msg;
+	if (!dst_pcb->messages) {
+		dst_pcb->messages = new_msg;
 	}
 	else {
-		list_add_tail(&(new_msg->list), &(PCB_pool[dst].messages->list));
+		list_add_tail(&(new_msg->list), &(dst_pcb->messages->list));
 	}
-	wakeup(&PCB_pool[dst]);
-	V(&(PCB_pool[dst].mutex));
-	V(&(PCB_pool[dst].amount));
+	wakeup(dst_pcb);
+	V(&(dst_pcb->mutex));
+	V(&(dst_pcb->amount));
 }
 
 void

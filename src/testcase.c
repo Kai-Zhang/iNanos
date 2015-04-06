@@ -311,13 +311,12 @@ test_message(void) {
 	pidE = (create_kthread(kthread_e))->pid;
 }
 
-
 // Main entry of testcases
 void
 test_setup(void) {
 	// Select testcases here.
 
-	accelerate();
+	// accelerate();
 	// test_printk();
 	// test_basic_kthread();
 	// test_stackoverflow();
