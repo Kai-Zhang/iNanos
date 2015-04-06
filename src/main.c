@@ -53,6 +53,7 @@ os_init_cont(void) {
 
 	/* Initialize drivers. */
 	init_driver();
+	test_setup();
 
 	printk("Hello, OS World!\n");
 

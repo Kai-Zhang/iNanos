@@ -8,6 +8,7 @@ extern PCB *next;
 
 PCB*
 fetch_pcb(pid_t pid) {
+	assert(pid >= 0 && pid < KERNEL_PCB_MAX);
 	return &PCB_pool[pid];
 }
 

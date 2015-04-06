@@ -7,6 +7,8 @@ int buf[NBUF];
 volatile int f = 0, r = 0, g = 1;
 int last = 0;
 Semaphore empty, full, mutex;
+
+extern void do_read(int, uint8_t*, off_t, size_t);
  
 // Accelerate the time clock to expose the problem of critical area
 void
@@ -311,6 +313,32 @@ test_message(void) {
 	pidE = (create_kthread(kthread_e))->pid;
 }
 
+
+// --------------------------------------------------
+// Test drivers
+// --------------------------------------------------
+void
+driver_kthread(void) {
+	uint8_t buf[32];
+	int len = dev_read("null", current->pid, buf, 0, 32);
+	assert(len == 0);
+	len = dev_read("zero", current->pid, buf, 0, 32);
+	assert(len == 32);
+	int i;
+	for (i = 0; i < len; i++) {
+		assert(buf[i] == 0);
+	}
+	printk("Dev test approved.\n");
+	do_read(1, buf, 0, 32);
+	printk("Get: %s\n", buf);
+	sleep();
+}
+
+void
+test_drivers(void) {
+	create_kthread(driver_kthread);
+}
+
 // Main entry of testcases
 void
 test_setup(void) {
@@ -323,4 +351,5 @@ test_setup(void) {
 	// test_sleep_wakeup();
 	// test_semaphore();
 	// test_message();
+	// test_drivers();
 }
