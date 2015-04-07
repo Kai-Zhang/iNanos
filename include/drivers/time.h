@@ -3,6 +3,9 @@
 
 #define HZ        100
 
+#define NEW_TIMER 1
+#define TIME_OUT  0
+
 typedef struct Time {
 	int year, month, day;
 	int hour, minute, second;

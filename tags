@@ -175,6 +175,7 @@ Message::dst	include/process/message.h	/^	pid_t src, dst;$/;"	member	struct:Mess
 Message::list	include/process/message.h	/^	struct list_head list;$/;"	member	struct:Message	typeref:struct:Message::list_head	access:public
 Message::src	include/process/message.h	/^	pid_t src, dst;$/;"	member	struct:Message	access:public
 NBUF	src/testcase.c	2;"	macro	file:
+NEW_TIMER	include/drivers/time.h	6;"	macro
 NR_CONS	src/testcase.c	4;"	macro	file:
 NR_DEV	src/drivers/hal.c	5;"	macro	file:
 NR_FILE_SIZE	src/drivers/ramdisk/file.c	4;"	macro	file:
@@ -188,6 +189,7 @@ NR_PROD	src/testcase.c	3;"	macro	file:
 NR_PTE	include/x86/memory.h	30;"	macro
 NR_SEC_CACHE	src/drivers/ide/cache.c	2;"	macro	file:
 NR_SEGMENTS	include/x86/memory.h	16;"	macro
+NR_TIMER	src/drivers/timer/timer.c	11;"	macro	file:
 NR_TTY	src/drivers/tty/tty.h	4;"	macro
 NULL	include/common/const.h	7;"	macro
 OBJS	Makefile	/^OBJS    = $(CFILES:.c=.o) $(SFILES:.S=.o)$/;"	macro
@@ -304,6 +306,8 @@ Semaphore	include/process/semaphore.h	/^} Semaphore;$/;"	typedef	typeref:struct:
 Semaphore::block	include/process/semaphore.h	/^	struct list_head block;$/;"	member	struct:Semaphore	typeref:struct:Semaphore::list_head	access:public
 Semaphore::count	include/process/semaphore.h	/^	int count;$/;"	member	struct:Semaphore	access:public
 TIMER	src/drivers/timer/timer.c	/^pid_t TIMER;$/;"	variable
+TIMER_TICK	src/drivers/timer/timer.c	12;"	macro	file:
+TIME_OUT	include/drivers/time.h	7;"	macro
 TRAP_GATE_32	src/irq/idt.c	5;"	macro	file:
 TSS	include/x86/memory.h	/^typedef struct TSS {$/;"	struct
 TSS	include/x86/memory.h	/^} TSS;$/;"	typedef	typeref:struct:TSS
@@ -321,6 +325,10 @@ Time::minute	include/drivers/time.h	/^	int hour, minute, second;$/;"	member	stru
 Time::month	include/drivers/time.h	/^	int year, month, day;$/;"	member	struct:Time	access:public
 Time::second	include/drivers/time.h	/^	int hour, minute, second;$/;"	member	struct:Time	access:public
 Time::year	include/drivers/time.h	/^	int year, month, day;$/;"	member	struct:Time	access:public
+Timer_t	src/drivers/timer/timer.c	/^struct Timer_t {$/;"	struct	file:
+Timer_t::countdown	src/drivers/timer/timer.c	/^	uint32_t countdown;$/;"	member	struct:Timer_t	file:	access:public
+Timer_t::list	src/drivers/timer/timer.c	/^	struct list_head list;$/;"	member	struct:Timer_t	typeref:struct:Timer_t::list_head	file:	access:public
+Timer_t::req_pid	src/drivers/timer/timer.c	/^	pid_t req_pid;$/;"	member	struct:Timer_t	file:	access:public
 TrapFrame	include/x86/memory.h	/^typedef struct TrapFrame {$/;"	struct
 TrapFrame	include/x86/memory.h	/^} TrapFrame;$/;"	typedef	typeref:struct:TrapFrame
 TrapFrame::cs	include/x86/memory.h	/^	uint32_t eip, cs, eflags;							\/\/ execution state saved by hardware$/;"	member	struct:TrapFrame	access:public
@@ -372,6 +380,7 @@ accelerate	src/testcase.c	/^accelerate(void) {$/;"	function	signature:(void)
 accessed	include/x86/memory.h	/^		uint32_t accessed            : 1;$/;"	member	struct:PageDirectoryEntry::__anon5	access:public
 accessed	include/x86/memory.h	/^		uint32_t accessed            : 1;$/;"	member	struct:PageTableEntry::__anon6	access:public
 add_irq_handle	src/irq/irq_handle.c	/^add_irq_handle(int irq, void (*func)(void) ) {$/;"	function	signature:(int irq, void (*func)(void) )
+alarm_ring	src/drivers/timer/timer.c	/^alarm_ring(struct Timer_t *timer) {$/;"	function	file:	signature:(struct Timer_t *timer)
 align	boot/boot.h	/^	unsigned int align;$/;"	member	struct:ProgramHeader	access:public
 align_to_page	include/x86/memory.h	35;"	macro
 align_to_page	src/memory/kvm.c	/^static PDE kpdir[NR_PDE] align_to_page;						\/\/ kernel page directory$/;"	variable	file:
@@ -411,6 +420,7 @@ cook	src/drivers/tty/console.c	/^cook(Console *c) {$/;"	function	file:	signature
 copy_from_kernel	src/lib/kcpy.c	/^void copy_from_kernel(PCB* pcb, void* dest, void* src, int len){$/;"	function	signature:(PCB* pcb, void* dest, void* src, int len)
 copy_to_kernel	src/lib/kcpy.c	/^void copy_to_kernel(PCB* pcb, void* dest, void* src, int len){$/;"	function	signature:(PCB* pcb, void* dest, void* src, int len)
 count	include/process/semaphore.h	/^	int count;$/;"	member	struct:Semaphore	access:public
+countdown	src/drivers/timer/timer.c	/^	uint32_t countdown;$/;"	member	struct:Timer_t	file:	access:public
 cr	src/drivers/tty/console.c	/^cr(Console *c) {$/;"	function	file:	signature:(Console *c)
 create_kthread	src/process/util.c	/^create_kthread(void *fun) {$/;"	function	signature:(void *fun)
 cs	include/x86/memory.h	/^	uint32_t eip, cs, eflags;							\/\/ execution state saved by hardware$/;"	member	struct:TrapFrame	access:public
@@ -471,6 +481,7 @@ flags	boot/boot.h	/^	unsigned int flags;$/;"	member	struct:ProgramHeader	access:
 fmd	src/drivers/ramdisk/file.c	/^fmd(void) {$/;"	function	file:	signature:(void)
 free	include/process/pcb.h	/^		struct list_head ready, sleep, free, sem;$/;"	member	struct:PCB::__anon4	typeref:struct:PCB::__anon4::	access:public
 free	src/drivers/hal.c	/^static struct list_head free, devices;$/;"	variable	typeref:struct:list_head	file:
+free	src/drivers/timer/timer.c	/^static struct Timer_t *free = timer_pool;$/;"	variable	typeref:struct:Timer_t	file:
 freeq	src/process/util.c	/^PCB *readyq, *freeq, *sleepq;$/;"	variable
 fs	include/x86/memory.h	/^	uint32_t gs, fs, es, ds;							\/\/ data segment registers$/;"	member	struct:TrapFrame	access:public
 full	src/testcase.c	/^Semaphore empty, full, mutex;$/;"	variable
@@ -510,6 +521,7 @@ in_byte	boot/boot.h	/^in_byte(short port) {$/;"	function	signature:(short port)
 in_byte	include/x86/io.h	/^in_byte(uint16_t port) {$/;"	function	signature:(uint16_t port)
 in_long	boot/boot.h	/^in_long(short port) {$/;"	function	signature:(short port)
 in_long	include/x86/io.h	/^in_long(uint16_t port) {$/;"	function	signature:(uint16_t port)
+init_alarm	src/drivers/timer/timer.c	/^init_alarm(void) {$/;"	function	signature:(void)
 init_consl	src/drivers/tty/console.c	/^init_consl(int tty_index) {$/;"	function	file:	signature:(int tty_index)
 init_console	src/drivers/tty/console.c	/^void init_console(void) {$/;"	function	signature:(void)
 init_driver	src/drivers/drivers.c	/^void init_driver() {$/;"	function
@@ -556,6 +568,7 @@ limit_15_0	include/x86/memory.h	/^	uint32_t limit_15_0          : 16;$/;"	member
 limit_19_16	include/x86/memory.h	/^	uint32_t limit_19_16         : 4;$/;"	member	struct:SegmentDescriptor	access:public
 list	include/drivers/hal.h	/^	struct list_head list;$/;"	member	struct:Device	typeref:struct:Device::list_head	access:public
 list	include/process/message.h	/^	struct list_head list;$/;"	member	struct:Message	typeref:struct:Message::list_head	access:public
+list	src/drivers/timer/timer.c	/^	struct list_head list;$/;"	member	struct:Timer_t	typeref:struct:Timer_t::list_head	file:	access:public
 list_add	include/lib/list.h	/^static inline void list_add(struct list_head *new, struct list_head *head)$/;"	function	signature:(struct list_head *new, struct list_head *head)
 list_add_tail	include/lib/list.h	/^static inline void list_add_tail(struct list_head *new, struct list_head *head)$/;"	function	signature:(struct list_head *new, struct list_head *head)
 list_del	include/lib/list.h	/^static inline void list_del(struct list_head *entry)$/;"	function	signature:(struct list_head *entry)
@@ -597,6 +610,7 @@ mutex	include/process/pcb.h	/^		Semaphore mutex, amount;$/;"	member	struct:PCB::
 mutex	src/testcase.c	/^Semaphore empty, full, mutex;$/;"	variable
 name	include/drivers/hal.h	/^	const char *name;$/;"	member	struct:Device	access:public
 name	src/drivers/tty/tty.h	/^	const char *name;$/;"	member	struct:Console	access:public
+new_timer	src/drivers/timer/timer.c	/^new_timer(pid_t req_pid, uint32_t countdown) {$/;"	function	file:	signature:(pid_t req_pid, uint32_t countdown)
 next	include/lib/list.h	/^	struct list_head *next, *prev;$/;"	member	struct:list_head	typeref:struct:list_head::list_head	access:public
 next	src/drivers/tty/console.c	/^next(Console *c) {$/;"	function	file:	signature:(Console *c)
 next	src/irq/irq_handle.c	/^	struct IRQ_t *next;$/;"	member	struct:IRQ_t	typeref:struct:IRQ_t::IRQ_t	file:	access:public
@@ -681,6 +695,7 @@ readyq	src/process/util.c	/^PCB *readyq, *freeq, *sleepq;$/;"	variable
 receive	src/process/message.c	/^receive(pid_t src, Message *msg) {$/;"	function	signature:(pid_t src, Message *msg)
 removec	src/drivers/tty/console.c	/^removec(Console *c) {$/;"	function	file:	signature:(Console *c)
 req_pid	include/process/message.h	/^			pid_t req_pid;$/;"	member	struct:Message::__anon2::__anon3	access:public
+req_pid	src/drivers/timer/timer.c	/^	pid_t req_pid;$/;"	member	struct:Timer_t	file:	access:public
 ret	include/process/message.h	/^		int ret;$/;"	member	union:Message::__anon1	access:public
 routine	src/irq/irq_handle.c	/^	void (*routine)(void);$/;"	member	struct:IRQ_t	file:	access:public
 rstk	src/drivers/tty/tty.h	/^	Message rstk[RSTK_SZ];$/;"	member	struct:Console	access:public
@@ -737,9 +752,14 @@ test_semaphore	src/testcase.c	/^test_semaphore(void) {$/;"	function	signature:(v
 test_setup	src/testcase.c	/^test_setup(void) {$/;"	function	signature:(void)
 test_sleep_wakeup	src/testcase.c	/^test_sleep_wakeup(void) {$/;"	function	signature:(void)
 test_stackoverflow	src/testcase.c	/^test_stackoverflow(void) {$/;"	function	signature:(void)
+test_timer	src/testcase.c	/^test_timer(void) {$/;"	function	signature:(void)
 tf	include/process/pcb.h	/^		void *tf;$/;"	member	struct:PCB::__anon4	access:public
+tick	src/drivers/timer/timer.c	/^tick(void) {$/;"	function	file:	signature:(void)
 time_intr	src/drivers/ide/ide.c	/^time_intr(void) {$/;"	function	file:	signature:(void)
 timer_driver_thread	src/drivers/timer/timer.c	/^timer_driver_thread(void) {$/;"	function	file:	signature:(void)
+timer_kthread	src/testcase.c	/^timer_kthread(void) {$/;"	function	signature:(void)
+timer_pool	src/drivers/timer/timer.c	/^static struct Timer_t timer_pool[NR_TIMER];$/;"	variable	typeref:struct:Timer_t	file:
+timers	src/drivers/timer/timer.c	/^static struct Timer_t *timers = NULL;$/;"	variable	typeref:struct:Timer_t	file:
 true	include/common/const.h	4;"	macro
 tsc	src/drivers/tty/banner.c	/^static int tsc = 0;$/;"	variable	file:
 tss	src/memory/kvm.c	/^static TSS tss; $/;"	variable	file:

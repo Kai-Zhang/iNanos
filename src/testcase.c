@@ -339,6 +339,24 @@ test_drivers(void) {
 	create_kthread(driver_kthread);
 }
 
+
+// --------------------------------------------------
+// Test drivers
+// --------------------------------------------------
+void
+timer_kthread(void) {
+	printk("Timer starts.\n");
+	dev_read("timer", current->pid, NULL, 0, 200);
+	printk("Time out.\n");
+	sleep();
+}
+
+void
+test_timer(void) {
+	create_kthread(timer_kthread);
+}
+
+
 // Main entry of testcases
 void
 test_setup(void) {
@@ -352,4 +370,5 @@ test_setup(void) {
 	// test_semaphore();
 	// test_message();
 	// test_drivers();
+	// test_timer();
 }
