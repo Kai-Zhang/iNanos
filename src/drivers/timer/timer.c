@@ -9,17 +9,15 @@
 #define FREQ_8253 1193182
 
 #define NR_TIMER 64
-#define TIMER_TICK 1
+#define TIMER_TIMEOUT 1
 
 struct Timer_t {
 	pid_t req_pid;
-	uint32_t countdown;
-	struct list_head list;
+	uint32_t ring_time;
 };
 
 static struct Timer_t timer_pool[NR_TIMER];
-static struct Timer_t *timers = NULL;
-static struct Timer_t *free = timer_pool;
+static int timer_num = 0;
 
 pid_t TIMER;
 static long jiffy = 0;
@@ -30,21 +28,11 @@ static void init_i8253(void);
 static void init_rt(void);
 static void timer_driver_thread(void);
 static void new_timer(pid_t, uint32_t);
-static void tick(void);
-
-void
-init_alarm(void) {
-	INIT_LIST_HEAD(&(timer_pool[0].list));
-	int i;
-	for (i = 1;i < NR_TIMER; i++) {
-		list_add_tail(&(timer_pool[i].list), &(timer_pool[i-1].list));
-	}
-}
+static void alarm_ring(void);
 
 void init_timer(void) {
 	init_i8253();
 	init_rt();
-	init_alarm();
 	add_irq_handle(0, update_jiffy);
 	PCB *p = create_kthread(timer_driver_thread);
 	TIMER = p->pid;
@@ -60,8 +48,8 @@ timer_driver_thread(void) {
 		receive(ANY, &m);
 	
 		if (m.src == MSG_HARD_INTR) {
-			if (m.type == TIMER_TICK) {
-				tick();
+			if (m.type == TIMER_TIMEOUT) {
+				alarm_ring();
 			}
 			else {
 				panic("Timer error");
@@ -102,9 +90,11 @@ update_jiffy(void) {
 		if (rt.month >= 13)  { rt.month = 1;  rt.year ++; }
 	}
 	static Message m;
-	m.type = TIMER_TICK;
-	m.src = MSG_HARD_INTR;
-	send(TIMER, &m);
+	if (timer_num && jiffy >= timer_pool[0].ring_time) {
+		m.type = TIMER_TIMEOUT;
+		m.src = MSG_HARD_INTR;
+		send(TIMER, &m);
+	}
 }
 
 static void
@@ -140,51 +130,60 @@ get_time(Time *tm) {
 
 static void
 new_timer(pid_t req_pid, uint32_t countdown) {
-	assert(free);
-	struct Timer_t *t = free;
-	free = list_entry(free->list.next, struct Timer_t, list);
-	t->req_pid = req_pid;
-	t->countdown = countdown;
-	if (timers) {
-		list_add_tail(&(t->list), &(timers->list));
+	uint32_t ring_time = jiffy + countdown;
+	int parent = timer_num / 2 - 1;
+	int son = timer_num ++;
+	lock();
+	while (parent >= 0 && son != 0) {
+		if (timer_pool[parent].ring_time <= ring_time) {
+			break;
+		}
+		timer_pool[son].req_pid = timer_pool[parent].req_pid;
+		timer_pool[son].ring_time = timer_pool[parent].ring_time;
+		son = parent;
+		parent = (parent - 1) / 2;
 	}
-	else {
-		timers = t;
-	}
+	timer_pool[son].req_pid = req_pid;
+	timer_pool[son].ring_time = ring_time;
+	unlock();
 }
 
 static void
-alarm_ring(struct Timer_t *timer) {
-	assert(timers);
+alarm_ring() {
+	assert(timer_num);
 	static Message m;
 	m.src = TIMER;
 	m.ret = TIME_OUT;
-	send(timer->req_pid, &m);
+	int parent = 0;
+	int son = 2 * parent + 1;
+	uint32_t deadline;
+	pid_t temp, req_pid;
+	while (timer_num > 0 && timer_pool[0].ring_time <= jiffy) {
+		req_pid = timer_pool[0].req_pid;
+		lock();
+		timer_pool[0].req_pid = timer_pool[timer_num-1].req_pid;
+		timer_pool[0].ring_time = timer_pool[timer_num-1].ring_time;
+		timer_num --;
 
-	if (timers == timer) {
-		if (list_empty(&(timer->list))) {
-			timers = NULL;
-		}
-		else {
-			timers = list_entry(timers->list.next, struct Timer_t, list);
-		}
-	}
-	list_del(&(timer->list));
-}
-
-static void
-tick(void) {
-	if (timers) {
-		timers->countdown --;
-		if (!timers->countdown) {
-			alarm_ring(timers);
-		}
-		struct Timer_t *t;
-		list_for_each_entry(t, &(timers->list), list) {
-			t->countdown --;
-			if (!t->countdown) {
-				alarm_ring(t);
+		deadline = timer_pool[0].ring_time;
+		temp = timer_pool[0].req_pid;
+		while (son < timer_num) {
+			if (son + 1 < timer_num && timer_pool[son+1].ring_time < timer_pool[son].ring_time) {
+				son ++;
 			}
+			if (timer_pool[son].ring_time > deadline) {
+				break;
+			}
+			timer_pool[parent].req_pid = timer_pool[son].req_pid;
+			timer_pool[parent].ring_time = timer_pool[son].ring_time;
+			parent = son;
+			son = 2 * son + 1;
 		}
+		timer_pool[parent].req_pid = temp;
+		timer_pool[parent].ring_time = deadline;
+		unlock();
+
+		send(req_pid, &m);
 	}
 }
+

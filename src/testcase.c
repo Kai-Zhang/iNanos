@@ -354,6 +354,10 @@ timer_kthread(void) {
 void
 test_timer(void) {
 	create_kthread(timer_kthread);
+	create_kthread(timer_kthread);
+	create_kthread(timer_kthread);
+	create_kthread(timer_kthread);
+	create_kthread(timer_kthread);
 }
 
 
@@ -370,5 +374,5 @@ test_setup(void) {
 	// test_semaphore();
 	// test_message();
 	// test_drivers();
-	// test_timer();
+	test_timer();
 }
