@@ -111,16 +111,22 @@ init_rt(void) {
 	memset(&rt, 0, sizeof(Time));
 	out_byte(PORT_RTC, 0x00);
 	rt.second = in_byte(PORT_RTC + 1);
+	rt.second -= (rt.second >> 4) * 6;
 	out_byte(PORT_RTC, 0x02);
 	rt.minute = in_byte(PORT_RTC + 1);
+	rt.minute -= (rt.minute >> 4) * 6;
 	out_byte(PORT_RTC, 0x04);
 	rt.hour = in_byte(PORT_RTC + 1);
+	rt.hour -= (rt.hour >> 4) * 6;
 	out_byte(PORT_RTC, 0x07);
 	rt.day = in_byte(PORT_RTC + 1);
+	rt.day -= (rt.day >> 4) * 6;
 	out_byte(PORT_RTC, 0x08);
 	rt.month = in_byte(PORT_RTC + 1);
+	rt.month -= (rt.month >> 4) * 6;
 	out_byte(PORT_RTC, 0x09);
 	rt.year = in_byte(PORT_RTC + 1);
+	rt.year -= (rt.year >> 4) * 6;
 }
 
 void 
